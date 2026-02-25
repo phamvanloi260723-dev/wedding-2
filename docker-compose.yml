@@ -1,0 +1,9 @@
+services:
+  wedding:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wedding-app
+    ports:
+      - "${PORT:-3000}:80"
+    restart: unless-stopped
