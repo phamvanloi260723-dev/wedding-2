@@ -11,6 +11,23 @@ import default_img from "@/assets/images/placeholder.webp";
 import { useState } from "react";
 export default function HomeSection() {
   const [imageSrc, setImageSrc] = useState(bg.src);
+  function addToGoogleCalendar() {
+    const title = "Lễ Cưới Lợi & ...";
+    const details = "Trân trọng kính mời bạn đến tham dự lễ cưới của chúng tôi.";
+    const location = "Nhà hàng ABC, Hải Dương";
+
+    const start = "20260315T030000Z";
+    const end = "20260315T060000Z";
+
+    const url =
+      "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+      "&text=" + encodeURIComponent(title) +
+      "&dates=" + start + "/" + end +
+      "&details=" + encodeURIComponent(details) +
+      "&location=" + encodeURIComponent(location);
+
+    window.open(url, "_blank");
+  }
   return (
     <section
       id="home"
@@ -56,13 +73,13 @@ export default function HomeSection() {
         </p>
 
         <button
+          onClick={() => addToGoogleCalendar()}
           className="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1"
           style={{ fontSize: "0.825rem" }}
         >
           <i className="fa-solid fa-calendar-check me-2"></i>
           Save Google Calendar
         </button>
-
         <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
           <div className="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50">
             <div className="scroll-animation rounded-4 bg-secondary"></div>

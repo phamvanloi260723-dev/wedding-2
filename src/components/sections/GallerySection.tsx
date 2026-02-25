@@ -2,6 +2,13 @@
 
 import Carousel from "@/components/Carousel";
 
+import image1 from "@/assets/images/18.jpg";
+import image2 from "@/assets/images/17.jpg";
+import image3 from "@/assets/images/16.jpg";
+import image4 from "@/assets/images/15.jpg";
+import image5 from "@/assets/images/14.jpg";
+import image6 from "@/assets/images/13.jpg";
+
 export default function GallerySection() {
   return (
     <section className="bg-white-black pb-5 pt-3" id="gallery">
@@ -17,18 +24,19 @@ export default function GallerySection() {
           <Carousel
             id="carousel-image-one"
             images={[
-              { src: "assets/images/18.jpg", alt: "image 1" },
-              { src: "assets/images/17.jpg", alt: "image 2" },
-              { src: "assets/images/16.jpg", alt: "image 3" },
+              { src: image1.src, alt: "Image 1" },
+              { src: image2.src, alt: "Image 2" },
+              { src: image3.src, alt: "Image 3" },
             ]}
+
           />
 
           <Carousel
             id="carousel-image-two"
             images={[
-              { src: "assets/images/15.jpg", alt: "image 4" },
-              { src: "assets/images/14.jpg", alt: "image 5" },
-              { src: "assets/images/13.jpg", alt: "image 6" },
+              { src: image4.src, alt: "Image 4" },
+              { src: image5.src, alt: "Image 5" },
+              { src: image6.src, alt: "Image 6" },
             ]}
           />
         </div>

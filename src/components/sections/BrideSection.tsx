@@ -17,7 +17,7 @@ export default function BrideSection() {
   const [imageSrc2, setImageSrc2] = useState(cewe.src);
 
   return (
-    <section className="bg-white-black text-center" id="bride">
+    <section className="container bg-white-black text-center" id="bride">
       <h2 className="font-arabic py-4 m-0" style={{ fontSize: "2rem" }}>
         Chúng tôi trân trọng kính mời
       </h2>

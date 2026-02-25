@@ -69,7 +69,7 @@ export default function LoveStorySection() {
                 }
               >
                 <i className="fa-solid fa-heart fa-bounce me-2"></i>
-                Lihat Story
+                Xem Story
               </button>
             </div>
 

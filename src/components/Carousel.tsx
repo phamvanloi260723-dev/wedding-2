@@ -20,6 +20,7 @@ export default function Carousel({
       data-aos-duration="1500"
       className="carousel slide mt-4"
       data-bs-ride="carousel"
+      data-bs-interval="3000"
     >
       <div className="carousel-indicators">
         {images.map((_, i) => (
@@ -39,11 +40,14 @@ export default function Carousel({
         {images.map((img, i) => (
           <div key={i} className={`carousel-item${i === 0 ? " active" : ""}`}>
             <img
-              src="./assets/images/placeholder.webp"
-              data-src={img.src}
+              src={img.src}
               alt={img.alt}
-              className="d-block img-fluid cursor-pointer"
-              onClick={(e) => window.undangan?.guest.modal(e.currentTarget)}
+              className="d-block w-100 img-fluid cursor-pointer"
+              onError={(e) => {
+                e.currentTarget.onerror = null; // tránh loop vô hạn
+                e.currentTarget.src = "/assets/images/placeholder.webp";
+              }}
+              onClick={(e) => window.undangan?.guest?.modal?.(e.currentTarget)}
             />
           </div>
         ))}
