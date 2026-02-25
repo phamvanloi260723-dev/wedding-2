@@ -1,6 +1,31 @@
-CODE_OF_CONDUCT.md
-SECURITY.md
-node_modules
-package-lock.json
-dist
-public
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# testing
+coverage/
+
+# next.js
+.next/
+out/
+
+# production
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
