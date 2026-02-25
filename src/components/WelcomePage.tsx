@@ -8,8 +8,11 @@ declare global {
 
 import bg from "@/assets/images/bg.jpg";
 import default_img from "@/assets/images/placeholder.webp";
+import { useState } from "react";
+
 
 export default function WelcomePage() {
+  const [imageSrc, setImageSrc] = useState(bg.src);
   return (
     <div
       className="loading-page bg-white-black"
@@ -23,11 +26,12 @@ export default function WelcomePage() {
           </h2>
 
           <img
-            // src={default_img.src}
-            src={bg.src}
+            src={imageSrc}
             alt="background"
             className="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto"
+            onError={() => setImageSrc(default_img.src)}
           />
+
 
           <h2 className="font-esthetic mb-4" style={{ fontSize: "2.25rem" }}>
             Tên chú rể &amp; Tên cô dâu

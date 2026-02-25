@@ -5,18 +5,25 @@ declare global {
     undangan: any;
   }
 }
-
+import Image from "next/image";
+import bg from "@/assets/images/bg.jpg";
+import default_img from "@/assets/images/placeholder.webp";
+import { useState } from "react";
 export default function HomeSection() {
+  const [imageSrc, setImageSrc] = useState(bg.src);
   return (
     <section
       id="home"
       className="bg-light-dark position-relative overflow-hidden p-0 m-0"
     >
-      <img
-        src="./assets/images/placeholder.webp"
-        data-src="./assets/images/bg.jpg"
+      <Image
+        src={bg}
+        onError={() => setImageSrc(default_img.src)}
         alt="bg"
+        fill
+        priority
         className="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home"
+        style={{ objectFit: "cover" }}
       />
 
       <div
@@ -30,10 +37,12 @@ export default function HomeSection() {
           Thiệp mời
         </h1>
 
-        <img
-          src="./assets/images/placeholder.webp"
-          data-src="./assets/images/bg.jpg"
+        <Image
+          src={bg}
+          onError={() => setImageSrc(default_img.src)}
           alt="bg"
+          width={200}
+          height={200}
           onClick={(e) => window.undangan?.guest.modal(e.currentTarget)}
           className="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer"
         />
@@ -41,6 +50,7 @@ export default function HomeSection() {
         <h2 className="font-esthetic my-4" style={{ fontSize: "2.25rem" }}>
           Tên chú rể &amp; Tên cô dâu
         </h2>
+
         <p className="my-2" style={{ fontSize: "1.25rem" }}>
           Thứ ngày tháng
         </p>
@@ -49,8 +59,8 @@ export default function HomeSection() {
           className="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1"
           style={{ fontSize: "0.825rem" }}
         >
-          <i className="fa-solid fa-calendar-check me-2"></i>Save Google
-          Calendar
+          <i className="fa-solid fa-calendar-check me-2"></i>
+          Save Google Calendar
         </button>
 
         <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
