@@ -31,7 +31,7 @@ export default function Home() {
       "./assets/music/i_do-duc_phuc.mp3",
     );
     document.body.setAttribute("data-confetti", "true");
-    document.body.setAttribute("data-time", "2026-02-22 09:30:00");
+    document.body.setAttribute("data-time", "2026-02-28 09:30:00");
 
     // Initialize the guest module and expose to window for onclick handlers
     const app = guest.init();

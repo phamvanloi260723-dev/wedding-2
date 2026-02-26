@@ -44,6 +44,10 @@ export default function LoveGiftSection() {
               <Image
                 src={donate}
                 alt="donate"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = default_img.src;
+                }}
                 className="rounded-3 bg-white"
                 width={250}
                 height={250}
@@ -83,6 +87,10 @@ export default function LoveGiftSection() {
               <Image
                 src={donate}
                 alt="donate"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = default_img.src;
+                }}
                 className="rounded-3 bg-white"
                 width={250}
                 height={250}

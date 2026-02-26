@@ -1,5 +1,6 @@
 "use client";
 
+import default_img from "@/assets/images/placeholder.webp";
 export default function ImageModal() {
   return (
     <div
@@ -16,7 +17,7 @@ export default function ImageModal() {
                 className="btn d-flex justify-content-center align-items-center bg-overlay-auto p-2 m-1 rounded-circle border shadow-sm z-1"
                 role="button"
                 target="_blank"
-                href="./assets/images/placeholder.webp"
+                href={default_img.src}
                 id="button-modal-click"
               >
                 <i
@@ -45,7 +46,7 @@ export default function ImageModal() {
             </div>
 
             <img
-              src="./assets/images/placeholder.webp"
+              src={default_img.src}
               className="img-fluid w-100 rounded-4 cursor-pointer"
               alt="image"
               id="show-modal-image"

@@ -5,7 +5,7 @@ declare global {
     undangan: any;
   }
 }
-
+import default_img from "@/assets/images/placeholder.webp";
 export default function Carousel({
   id,
   images,
@@ -45,7 +45,7 @@ export default function Carousel({
               className="d-block w-100 img-fluid cursor-pointer"
               onError={(e) => {
                 e.currentTarget.onerror = null; // tránh loop vô hạn
-                e.currentTarget.src = "/assets/images/placeholder.webp";
+                e.currentTarget.src = default_img.src;
               }}
               onClick={(e) => window.undangan?.guest?.modal?.(e.currentTarget)}
             />
