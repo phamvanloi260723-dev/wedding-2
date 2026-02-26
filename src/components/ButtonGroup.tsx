@@ -31,13 +31,6 @@ export default function ButtonGroup() {
 
   return (
     <>
-      {/* AUDIO */}
-      <audio
-        ref={audioRef}
-        src="/assets/music/i_do-duc_phuc.mp3"
-        loop
-      />
-
       <div
         className="d-flex position-fixed flex-column"
         style={{ bottom: "10vh", right: "2vh", zIndex: 1030 }}

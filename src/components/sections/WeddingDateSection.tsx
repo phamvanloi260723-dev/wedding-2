@@ -75,7 +75,7 @@ export default function WeddingDateSection() {
       <div className="container">
 
         {/* ── HEADER ── */}
-        <div className="wds-header">
+        <div className="wds-header" data-aos="fade-up">
           <p className="wds-header__sub">Chúng tôi sắp kết hôn</p>
           <h2 className="font-esthetic wds-header__title">Đếm ngược đến ngày trọng đại</h2>
           <div className="wds-header__divider">
@@ -88,7 +88,7 @@ export default function WeddingDateSection() {
         <div className="wds-body">
 
           {/* ── CALENDAR ── */}
-          <div className="wds-calendar-wrap">
+          <div className="wds-calendar-wrap" data-aos="fade-right">
             <div className="wds-calendar">
               <table className="wds-cal-table">
                 <thead>
@@ -154,7 +154,7 @@ export default function WeddingDateSection() {
           </div>
 
           {/* ── SINGLE COUNTDOWN ── */}
-          <div className="wds-countdowns">
+          <div className="wds-countdowns" data-aos="fade-left">
             <div className={`wds-cd-card wds-cd-card--${ev.accent}`} key={activeEvent}>
               <div className="wds-cd-card__header">
                 <p className="wds-cd-card__title">
@@ -182,8 +182,7 @@ export default function WeddingDateSection() {
       </div>
 
       {/* ── DRESSCODE & LOCATION ── */}
-      <div className="wds-extra text-center mt-5">
-
+      <div className="wds-extra text-center mt-5" data-aos="fade-up">
         <p className="container text-center" style={{ fontSize: "1rem" }}>
           Để thể hiện sự thân thiện lẫn nhau, chúng tôi đề nghị quý vị
           tuân thủ quy định về trang phục sau đây:

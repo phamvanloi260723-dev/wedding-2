@@ -693,3 +693,6 @@ html[data-bs-theme="dark"] .wds-legend__item--active {
     transform: rotate(360deg);
   }
 }
+.wds-section {
+  overflow: hidden;
+}

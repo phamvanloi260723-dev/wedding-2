@@ -23,30 +23,42 @@ import ImageModal from "@/components/ImageModal";
 export default function Home() {
   useEffect(() => {
     AOS.init({
-      duration: 1200,      // tốc độ animation
+      duration: 1200,
       easing: "ease-in-out",
-      once: true,          // chỉ chạy 1 lần (quan trọng cho vibe sang)
-      offset: 80,
+      once: false,
+      offset: 120,
     });
-    // Set body attributes
-    // document.body.setAttribute(
-    //   "data-key",
-    //   "d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743",
-    // );
-    document.body.setAttribute("data-key", "");
-    document.body.setAttribute("data-url", "/api/");
     document.body.setAttribute(
-      "data-audio",
-      "./assets/music/i_do-duc_phuc.mp3",
+      "data-key",
+      "d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743",
     );
+    document.body.setAttribute("data-url", "/api/");
+    document.body.setAttribute("data-audio", "./assets/music/i_do-duc_phuc.mp3");
     document.body.setAttribute("data-confetti", "true");
     document.body.setAttribute("data-time", "2026-02-28 09:30:00");
 
-    // Initialize the guest module and expose to window for onclick handlers
     const app = guest.init();
     window.undangan = app;
 
+    let scrollInterval: any;
+
+    const startAutoScroll = () => {
+      scrollInterval = setInterval(() => {
+        window.scrollBy(0, 0.8);
+      }, 16);
+    };
+
+    const stopScroll = () => clearInterval(scrollInterval);
+
+    setTimeout(startAutoScroll, 4000);
+
+    window.addEventListener("touchstart", stopScroll);
+    window.addEventListener("wheel", stopScroll);
+
     return () => {
+      stopScroll();
+      window.removeEventListener("touchstart", stopScroll);
+      window.removeEventListener("wheel", stopScroll);
       guest.destroy();
     };
   }, []);
