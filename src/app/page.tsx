@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import { guest } from "@/lib/guest/guest";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import WaveSeparator from "@/components/WaveSeparator";
 import DesktopSidebar from "@/components/sections/DesktopSidebar";
@@ -20,11 +22,18 @@ import ImageModal from "@/components/ImageModal";
 
 export default function Home() {
   useEffect(() => {
+    AOS.init({
+      duration: 1200,      // tốc độ animation
+      easing: "ease-in-out",
+      once: true,          // chỉ chạy 1 lần (quan trọng cho vibe sang)
+      offset: 80,
+    });
     // Set body attributes
-    document.body.setAttribute(
-      "data-key",
-      "d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743",
-    );
+    // document.body.setAttribute(
+    //   "data-key",
+    //   "d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743",
+    // );
+    document.body.setAttribute("data-key", "");
     document.body.setAttribute("data-url", "/api/");
     document.body.setAttribute(
       "data-audio",

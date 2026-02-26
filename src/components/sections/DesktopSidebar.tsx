@@ -22,7 +22,7 @@ export default function DesktopSidebar() {
                 onError={() => setImageSrc(default_img.src)}
                 alt="bg"
                 className="bg-cover-home"
-                style={{ maskImage: "none", opacity: "30%" }}
+                style={{ maskImage: "none", opacity: "50%" }}
               />
             </div>
             <div
@@ -34,7 +34,7 @@ export default function DesktopSidebar() {
                 onError={() => setImageSrc2(default_img.src)}
                 alt="bg"
                 className="bg-cover-home"
-                style={{ maskImage: "none", opacity: "30%" }}
+                style={{ maskImage: "none", opacity: "50%" }}
               />
             </div>
             <div
@@ -46,7 +46,7 @@ export default function DesktopSidebar() {
                 onError={() => setImageSrc3(default_img.src)}
                 alt="bg"
                 className="bg-cover-home"
-                style={{ maskImage: "none", opacity: "30%" }}
+                style={{ maskImage: "none", opacity: "50%" }}
               />
             </div>
           </div>
