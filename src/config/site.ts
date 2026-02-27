@@ -9,10 +9,11 @@ export const siteConfig = {
   brideMotherName: "Tên Mẹ Cô Dâu",
 
   // Dates
-  engagementDate: "2026-01-20T00:00:00",
-  weddingDate: "2026-01-24T00:00:00",
+  engagementDate: "2026-03-01T00:00:00.000+07:00",
+  weddingDate: "2026-03-24T00:00:00.000+07:00",
   calendarYear: 2026,
-  calendarMonth: 0, // January
+  calendarMonth: 2, // January
+  
   // Audio
   audioUrl: "/assets/music/i_do-duc_phuc.mp3",
 

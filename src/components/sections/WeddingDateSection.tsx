@@ -3,52 +3,53 @@
 import { useEffect, useState } from "react";
 import LoveAnimation from "@/components/LoveAnimation";
 import { siteConfig } from "@/config/site";
-
+import { calculateCountdown } from "@/lib/countdown";
 type EventKey = "engagement" | "wedding";
 
-const EVENTS: Record<EventKey, { label: string; date: Date; accent: string; dotClass: string; }> = {
-  engagement: {
-    label: "Ăn hỏi",
-    date: new Date(siteConfig.engagementDate),
-    accent: "gold",
-    dotClass: "wds-legend__dot--eng",
-  },
-  wedding: {
-    label: "Lễ cưới",
-    date: new Date(siteConfig.weddingDate),
-    accent: "rose",
-    dotClass: "wds-legend__dot--wed",
-  },
-} as const;
-
 export default function WeddingDateSection() {
+  const [isMounted, setIsMounted] = useState(false);
   const [activeEvent, setActiveEvent] = useState<EventKey>("wedding");
+
+  // Tạo EVENTS bên trong component để luôn nhận giá trị mới nhất từ siteConfig nếu có update (HMR)
+  const EVENTS: Record<EventKey, { label: string; date: Date; accent: string; dotClass: string; }> = {
+    engagement: {
+      label: "Ăn hỏi",
+      date: new Date(siteConfig.engagementDate),
+      accent: "gold",
+      dotClass: "wds-legend__dot--eng",
+    },
+    wedding: {
+      label: "Lễ cưới",
+      date: new Date(siteConfig.weddingDate),
+      accent: "rose",
+      dotClass: "wds-legend__dot--wed",
+    },
+  };
+
   const engagementDay = EVENTS.engagement.date.getDate();
   const weddingDay = EVENTS.wedding.date.getDate();
 
-  const calculateTimeLeft = (targetDate: Date) => {
-    const now = new Date();
-    const diff = targetDate.getTime() - now.getTime();
-    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
-    return {
-      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((diff / (1000 * 60)) % 60),
-      seconds: Math.floor((diff / 1000) % 60),
-      expired: false,
-    };
-  };
+  const [timeLeft, setTimeLeft] = useState(() => calculateCountdown(EVENTS[activeEvent].date));
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(EVENTS[activeEvent].date));
-
-  // Recalculate when active event changes
+  // Tránh lỗi Hydration Mismatch bằng cách chỉ render client-side thời gian thực
   useEffect(() => {
-    setTimeLeft(calculateTimeLeft(EVENTS[activeEvent].date));
-    const interval = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(EVENTS[activeEvent].date));
-    }, 1000);
+    setIsMounted(true);
+  }, []);
+
+  // Tính lại mỗi khi đổi event
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const update = () => {
+      setTimeLeft(calculateCountdown(EVENTS[activeEvent].date));
+    };
+
+    update(); // chạy ngay khi có interval mới
+
+    const interval = setInterval(update, 1000);
+
     return () => clearInterval(interval);
-  }, [activeEvent]);
+  }, [activeEvent, isMounted, EVENTS.engagement.date.getTime(), EVENTS.wedding.date.getTime()]);
 
   // Generate calendar from siteConfig
   const year = siteConfig.calendarYear;
@@ -114,7 +115,7 @@ export default function WeddingDateSection() {
                         const isEng = d === engagementDay;
                         const isWed = d === weddingDay;
                         const isSun = j === 6;
-                        const isActiveDay = d === ev.dayNum;
+                        const isActiveDay = d === ev.date.getDate();
                         return (
                           <td key={j}>
                             <div
@@ -166,7 +167,11 @@ export default function WeddingDateSection() {
             <div className={`wds-cd-card wds-cd-card--${ev.accent}`} key={activeEvent}>
               <div className="wds-cd-card__header">
                 <p className="wds-cd-card__title">
-                  {timeLeft.expired}
+                  {!isMounted
+                    ? "Đang tính toán thời gian..."
+                    : timeLeft.expired
+                      ? `${ev.label} đã diễn ra 🎉`
+                      : `Còn lại đến ${ev.label}`}
                 </p>
               </div>
               <div className="wds-cd-grid">
@@ -178,7 +183,7 @@ export default function WeddingDateSection() {
                 ].map(({ v, l }, i) => (
                   <div key={i} className="wds-cd-unit">
                     <div className="wds-cd-box">
-                      <span className="wds-cd-num">{pad(v)}</span>
+                      <span className="wds-cd-num">{isMounted ? pad(v) : "00"}</span>
                     </div>
                     <span className="wds-cd-label">{l}</span>
                   </div>
