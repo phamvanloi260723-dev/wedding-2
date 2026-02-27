@@ -18,15 +18,17 @@ export default function BrideSection() {
 
   return (
     <section className="container bg-white-black text-center" id="bride">
-      <h2 className="font-arabic py-4 m-0" style={{ fontSize: "2rem" }}>
-        Chúng tôi trân trọng kính mời
+      <h2
+        className="font-secondary py-3 m-0 d-flex flex-column align-items-center text-center"
+        style={{
+          fontSize: "1.7rem",
+          lineHeight: 1.5
+        }}
+      >
+        <span>Chúng tôi trân trọng kính mời.</span>
+        <span>Bạn đến dự lễ cưới của chúng tôi</span>
       </h2>
-
-      <h2 className="font-esthetic py-4 m-0" style={{ fontSize: "2rem" }}>
-        Bạn đến dự lễ cưới của chúng tôi
-      </h2>
-
-      <p className="pb-4 px-2 m-0" style={{ fontSize: "0.95rem" }}>
+      <p className="font-esthetic pb-4 px-2 m-0">
         Thật vui khi có bạn ở đây, chúng tôi rất mong được chia sẻ khoảnh khắc
         đặc biệt này với bạn. Hãy cùng chúng tôi tạo nên những kỷ niệm đáng nhớ
         trong ngày trọng đại của chúng tôi!
@@ -48,29 +50,28 @@ export default function BrideSection() {
               className="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer"
             />
 
-            <h2 className="font-esthetic m-0" style={{ fontSize: "2.125rem" }}>
+            <h2 className="font-secondary m-0" style={{ fontSize: "2.125rem" }}>
               Tên Chú Rể
             </h2>
 
-            <p className="mt-3 mb-1" style={{ fontSize: "1.25rem" }}>
+            <p className="font-esthetic mt-3 mb-1" >
               Bố
             </p>
-            <p className="mb-0">Tên Bố Chú Rể</p>
-
-            <p className="mb-0">Mẹ</p>
-            <p className="mb-0">Tên Mẹ Chú Rể</p>
+            <p className="font-esthetic mb-0">Tên Bố Chú Rể</p>
+            <p className="font-esthetic mb-0">Mẹ</p>
+            <p className="font-esthetic mb-0">Tên Mẹ Chú Rể</p>
           </div>
 
           <LoveAnimation top="90%" left="5%" time={2000} />
         </div>
 
-        <h2 className="font-esthetic mt-4" style={{ fontSize: "4.5rem" }}>
+        <h2 className="font-primary mt-4" style={{ fontSize: "4.5rem" }}>
           &amp;
         </h2>
 
         {/* Bride */}
         <div className="position-relative">
-          <LoveAnimation top="0%" right="5%" time={3000} />
+          <LoveAnimation top="0%" right="5%" time={2000} />
 
           <div data-aos="fade-left" data-aos-duration="2000" className="pb-1">
             <Image
@@ -83,17 +84,16 @@ export default function BrideSection() {
               className="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer"
             />
 
-            <h2 className="font-esthetic m-0" style={{ fontSize: "2.125rem" }}>
+            <h2 className="font-secondary m-0" style={{ fontSize: "2.125rem" }}>
               Tên Cô Dâu
             </h2>
 
-            <p className="mt-3 mb-1" style={{ fontSize: "1.25rem" }}>
+            <p className="font-esthetic mt-3 mb-1" >
               Bố
             </p>
-            <p className="mb-0">Tên Bố Cô Dâu</p>
-
-            <p className="mb-0">Mẹ</p>
-            <p className="mb-0">Tên Mẹ Cô Dâu</p>
+            <p className="font-esthetic mb-0">Tên Bố Cô Dâu</p>
+            <p className="font-esthetic mb-0">Mẹ</p>
+            <p className="font-esthetic mb-0">Tên Mẹ Cô Dâu</p>
           </div>
 
           <LoveAnimation top="90%" left="5%" time={2500} />

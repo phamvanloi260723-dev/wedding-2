@@ -12,8 +12,8 @@ export default function CommentSection() {
       <div className="container">
         <div className="border rounded-5 shadow p-3 mb-2">
           <h2
-            className="font-esthetic text-center mt-2 mb-4"
-            style={{ fontSize: "2.25rem" }}
+            className="font-secondary text-center mt-2 mb-4"
+            style={{ fontSize: "2rem" }}
           >
             Lời chúc phúc &amp; Sự hiện diện
           </h2>

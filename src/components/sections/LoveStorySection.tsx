@@ -15,8 +15,8 @@ export default function LoveStorySection() {
       <div className="container">
         <div className="bg-theme-auto rounded-5 shadow p-3">
           <h2
-            className="font-esthetic text-center py-2 mb-2"
-            style={{ fontSize: "1.5rem" }}
+            className="font-secondary text-center py-2 mb-2"
+            style={{ fontSize: "1.9rem" }}
           >
             Câu chuyện tình yêu của chúng tôi
           </h2>
@@ -68,7 +68,7 @@ export default function LoveStorySection() {
                   )
                 }
               >
-                <i className="fa-solid fa-heart fa-bounce me-2"></i>
+                <i className="font-esthetic fa-solid fa-heart fa-bounce me-2"></i>
                 Xem Story
               </button>
             </div>

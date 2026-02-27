@@ -15,7 +15,7 @@ export default function GallerySection() {
       <div className="container">
         <div className="border rounded-5 shadow p-3">
           <h2
-            className="font-esthetic text-center py-2 m-0"
+            className="font-secondary text-center py-2 m-0"
             style={{ fontSize: "2.25rem" }}
           >
             Khoảnh khắc của chúng tôi

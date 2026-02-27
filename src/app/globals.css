@@ -190,8 +190,187 @@ html {
   -ms-overflow-style: auto !important;
 }
 
+/* Container giới hạn chiều rộng cho đẹp */
+.wedding-hero {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Dòng phụ "Đám cưới của" */
+.wedding-subtitle {
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ===== Wedding Names Layout ===== */
+
+.wedding-names {
+  font-size: clamp(1.8rem, 1vw, 2.4rem);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.font-primary {
+  font-family: "Playfair Display", serif;
+}
+
+.font-secondary {
+  font-family: "Cormorant Garamond", serif;
+}
+
 .font-esthetic {
-  font-family: "Sacramento", cursive !important;
+  font-family: "Montserrat", sans-serif;
+}
+.font-number {
+  font-family: "Cinzel", serif;
+}
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto 1fr;
+  align-items: center;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.date-day {
+  text-align: right;
+}
+
+.date-month {
+  text-align: center;
+}
+
+.date-year {
+  text-align: left;
+}
+
+.date-dot {
+  text-align: center;
+}
+
+/* Tên trái phải */
+.name-left,
+.name-right {
+  max-width: 220px;
+  line-height: 1.3;
+}
+
+/* Heart wrapper */
+.heart-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Heart chính */
+.heart-icon {
+  font-size: 2rem;
+  color: #e8406c;
+  position: relative;
+  z-index: 2;
+  animation: heartBeat 1.8s ease-in-out infinite;
+}
+/* Heart background glow */
+.heart-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(
+    circle,
+    rgba(232, 64, 108, 0.35),
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Animation nhịp tim */
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Ảnh đại diện */
+.wedding-avatar {
+  width: clamp(130px, 45vw, 220px);
+  height: clamp(130px, 45vw, 220px);
+  object-fit: cover;
+}
+
+/* Guest text */
+#guest-name {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  opacity: 0.8;
+}
+
+/* Button */
+.wedding-button {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.wedding-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 576px) {
+  .wedding-names {
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  .name-left,
+  .name-right {
+    max-width: 100%;
+  }
+
+  .heart-icon {
+    font-size: 1.6rem;
+  }
+
+  .heart-wrapper::before {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .font-arabic {
@@ -306,34 +485,77 @@ svg {
 
 /* ── keyframes ── */
 @keyframes wds-beat {
-  0%,100% { transform: scale(1); }
-  15%      { transform: scale(1.2); }
-  30%      { transform: scale(1); }
-  45%      { transform: scale(1.12); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.12);
+  }
 }
 @keyframes wds-ring-pulse {
-  0%   { transform: translate(-50%,-50%) scale(1);   opacity: .7; }
-  100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
 }
 @keyframes wds-float {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-7px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
 }
 @keyframes wds-fade-in-up {
-  from { opacity:0; transform:translateY(12px); }
-  to   { opacity:1; transform:translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes wds-cd-tick {
-  from { transform:translateY(-6px); opacity:0; }
-  to   { transform:translateY(0);    opacity:1; }
+  from {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @keyframes wds-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 @keyframes wds-dot-pop {
-  0%,100% { transform: scale(1); opacity:.4; }
-  50%      { transform: scale(1.5); opacity:1; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
 }
 
 /* ── section ── */
@@ -346,31 +568,33 @@ svg {
 .wds-header {
   text-align: center;
   margin-bottom: 2.5rem;
-  animation: wds-fade-in-up .6s ease both;
+  animation: wds-fade-in-up 0.6s ease both;
 }
 .wds-header__sub {
-  font-size: .75rem;
-  letter-spacing: .3em;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  opacity: .45;
-  margin-bottom: .3rem;
+  opacity: 0.45;
+  margin-bottom: 0.3rem;
 }
 .wds-header__title {
+  font-family: "Playfair Display", serif !important;
   font-size: clamp(1.9rem, 5vw, 2.9rem) !important;
-  margin-bottom: .8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 .wds-header__divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .8rem;
+  gap: 0.8rem;
 }
 .wds-header__line {
   flex: 1;
   max-width: 100px;
   height: 1px;
   background: linear-gradient(90deg, transparent, #e05080, transparent);
-  opacity: .4;
+  opacity: 0.4;
 }
 .wds-header__gem {
   font-size: 1.1rem;
@@ -380,13 +604,15 @@ svg {
 .wds-body {
   display: flex;
   flex-direction: column;
-  align-items: center;   /* căn giữa */
+  align-items: center; /* căn giữa */
   gap: 2.5rem;
   max-width: 860px;
   margin: 0 auto;
 }
 @media (max-width: 660px) {
-  .wds-body { grid-template-columns: 1fr; }
+  .wds-body {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ════════════ CALENDAR ════════════ */
@@ -399,19 +625,23 @@ svg {
 }
 html[data-bs-theme="light"] .wds-calendar {
   background: #fff;
-  box-shadow: 0 8px 30px rgba(224,80,128,.1), 0 2px 8px rgba(0,0,0,.06);
+  box-shadow:
+    0 8px 30px rgba(224, 80, 128, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.06);
 }
 html[data-bs-theme="dark"] .wds-calendar {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.07);
-  box-shadow: 0 8px 30px rgba(224,80,128,.12), 0 2px 8px rgba(0,0,0,.3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 8px 30px rgba(224, 80, 128, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .wds-calendar__title {
   text-align: center;
-  font-size: .72rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: .25em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #e05080;
   margin-bottom: 1rem;
@@ -424,15 +654,20 @@ html[data-bs-theme="dark"] .wds-calendar {
   text-align: center;
 }
 .wds-cal-table thead th {
-  font-size: .6rem;
-  letter-spacing: .1em;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding-bottom: .55rem;
-  opacity: .45;
+  padding-bottom: 0.55rem;
+  opacity: 0.45;
   font-weight: 500;
 }
-.wds-th--sun { color: #e05080; opacity: 1 !important; }
-.wds-cal-table tbody td { padding: 3px 1px; }
+.wds-th--sun {
+  color: #e05080;
+  opacity: 1 !important;
+}
+.wds-cal-table tbody td {
+  padding: 3px 1px;
+}
 
 /* ── day cell ── */
 .wds-day {
@@ -444,14 +679,28 @@ html[data-bs-theme="dark"] .wds-calendar {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .82rem;
-  transition: transform .2s ease, background .2s ease;
+  font-size: 0.82rem;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
-html[data-bs-theme="light"] .wds-day:hover { background: rgba(224,80,128,.08); transform: scale(1.1); }
-html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); transform: scale(1.1); }
+html[data-bs-theme="light"] .wds-day:hover {
+  background: rgba(224, 80, 128, 0.08);
+  transform: scale(1.1);
+}
+html[data-bs-theme="dark"] .wds-day:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: scale(1.1);
+}
 
-.wds-day--sun { color: #e05080; }
-.wds-day__num { position: relative; z-index: 2; line-height: 1; }
+.wds-day--sun {
+  color: #e05080;
+}
+.wds-day__num {
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+}
 
 /* badge (icon) sits below number */
 .wds-day__badge {
@@ -459,7 +708,7 @@ html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); 
   bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: .6rem;
+  font-size: 0.6rem;
   line-height: 1;
   z-index: 3;
   pointer-events: none;
@@ -470,9 +719,11 @@ html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); 
   background: linear-gradient(135deg, #f6c90e, #e9a800);
   color: #fff !important;
   font-weight: 700;
-  box-shadow: 0 3px 12px rgba(246,201,14,.45);
+  box-shadow: 0 3px 12px rgba(246, 201, 14, 0.45);
 }
-.wds-day--eng .wds-day__badge { filter: drop-shadow(0 1px 2px rgba(0,0,0,.3)); }
+.wds-day--eng .wds-day__badge {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
 
 /* ── Wedding day (22) ── */
 .wds-day--wed {
@@ -480,12 +731,12 @@ html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); 
   color: #fff !important;
   font-weight: 700;
   animation: wds-beat 1.8s ease-in-out infinite;
-  box-shadow: 0 3px 14px rgba(220,50,100,.5);
+  box-shadow: 0 3px 14px rgba(220, 50, 100, 0.5);
 }
 .wds-day--wed .wds-day__badge {
   color: #fff;
-  font-size: .75rem;
-  filter: drop-shadow(0 0 4px rgba(220,50,100,.7));
+  font-size: 0.75rem;
+  filter: drop-shadow(0 0 4px rgba(220, 50, 100, 0.7));
 }
 
 /* pulse ring behind wedding day */
@@ -496,7 +747,7 @@ html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); 
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(224,80,128,.35);
+  background: rgba(224, 80, 128, 0.35);
   animation: wds-ring-pulse 1.8s ease-out infinite;
   z-index: 0;
 }
@@ -505,7 +756,7 @@ html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); 
 .wds-legend {
   display: flex;
   justify-content: center;
-  gap: .75rem;
+  gap: 0.75rem;
   margin-top: 1rem;
 }
 
@@ -513,17 +764,17 @@ html[data-bs-theme="dark"]  .wds-day:hover { background: rgba(255,255,255,.07); 
 .wds-legend__item {
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
-  padding: .35rem .85rem;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  font-size: .68rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   border: 1.5px solid transparent;
   cursor: pointer;
-  transition: all .22s ease;
+  transition: all 0.22s ease;
   background: transparent;
-  opacity: .55;
+  opacity: 0.55;
 }
 
 html[data-bs-theme="light"] .wds-legend__item {
@@ -534,7 +785,7 @@ html[data-bs-theme="dark"] .wds-legend__item {
 }
 
 .wds-legend__item:hover {
-  opacity: .85;
+  opacity: 0.85;
   transform: translateY(-1px);
 }
 
@@ -544,23 +795,23 @@ html[data-bs-theme="dark"] .wds-legend__item {
   transform: translateY(-1px);
 }
 html[data-bs-theme="light"] .wds-legend__item--active {
-  background: rgba(0,0,0,.04);
-  border-color: rgba(0,0,0,.1);
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 html[data-bs-theme="dark"] .wds-legend__item--active {
-  background: rgba(255,255,255,.07);
-  border-color: rgba(255,255,255,.14);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 /* Gold active glow */
 .wds-legend__item--active:has(.wds-legend__dot--eng) {
-  border-color: rgba(246,201,14,.5) !important;
-  box-shadow: 0 0 10px rgba(246,201,14,.2);
+  border-color: rgba(246, 201, 14, 0.5) !important;
+  box-shadow: 0 0 10px rgba(246, 201, 14, 0.2);
 }
 /* Rose active glow */
 .wds-legend__item--active:has(.wds-legend__dot--wed) {
-  border-color: rgba(232,64,108,.5) !important;
-  box-shadow: 0 0 10px rgba(232,64,108,.2);
+  border-color: rgba(232, 64, 108, 0.5) !important;
+  box-shadow: 0 0 10px rgba(232, 64, 108, 0.2);
 }
 
 .wds-legend__dot {
@@ -568,14 +819,19 @@ html[data-bs-theme="dark"] .wds-legend__item--active {
   height: 9px;
   border-radius: 50%;
   flex-shrink: 0;
-  transition: transform .22s ease;
+  transition: transform 0.22s ease;
 }
 .wds-legend__item--active .wds-legend__dot {
   transform: scale(1.3);
 }
-.wds-legend__dot--eng { background: #f6c90e; box-shadow: 0 0 5px rgba(246,201,14,.5); }
-.wds-legend__dot--wed { background: #e8406c; box-shadow: 0 0 5px rgba(232,64,108,.5); }
-
+.wds-legend__dot--eng {
+  background: #f6c90e;
+  box-shadow: 0 0 5px rgba(246, 201, 14, 0.5);
+}
+.wds-legend__dot--wed {
+  background: #e8406c;
+  box-shadow: 0 0 5px rgba(232, 64, 108, 0.5);
+}
 
 /* ════════════ COUNTDOWN CARDS ════════════ */
 .wds-countdowns {
@@ -591,15 +847,23 @@ html[data-bs-theme="dark"] .wds-legend__item--active {
   padding: 1.4rem 1.2rem 1.2rem;
   position: relative;
   overflow: hidden;
-  animation: wds-fade-in-up .7s ease both;
+  animation: wds-fade-in-up 0.7s ease both;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  box-shadow: 0 0 40px rgba(212, 160, 23, 0.2);
 }
 .wds-cd-card::before {
   content: "";
   position: absolute;
-  top: 0; left: -60%;
+  top: 0;
+  left: -60%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
   animation: wds-shimmer 3.5s linear infinite;
 }
 
@@ -608,7 +872,7 @@ html[data-bs-theme="dark"] .wds-legend__item--active {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .45rem;
+  gap: 0.45rem;
   margin-bottom: 1rem;
 }
 .wds-cd-card__icon {
@@ -617,72 +881,88 @@ html[data-bs-theme="dark"] .wds-legend__item--active {
   animation: wds-beat 2s ease-in-out infinite;
 }
 .wds-cd-card__title {
-  font-size: .72rem;
-  letter-spacing: .22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 600;
   margin: 0;
-  opacity: .65;
+  opacity: 0.65;
 }
 
 /* grid of 4 units */
 .wds-cd-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: .5rem;
+  gap: 0.5rem;
 }
 .wds-cd-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .35rem;
+  gap: 0.35rem;
 }
 .wds-cd-box {
   width: 100%;
   aspect-ratio: 1;
   max-width: 58px;
-  border-radius: .85rem;
+  border-radius: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(145deg, #5b2c83, #7b3fa0);
+  box-shadow:
+    0 0 20px rgba(140, 70, 255, 0.5),
+    inset 0 3px 8px rgba(255, 255, 255, 0.2);
 }
 /* glossy overlay */
 .wds-cd-box::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,.18) 0%, transparent 55%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 55%
+  );
   border-radius: inherit;
   pointer-events: none;
 }
 
 /* Gold boxes */
 .wds-cd-card--gold .wds-cd-box {
-  background: linear-gradient(145deg, #e2c656, #d9a400);
-  box-shadow: 0 4px 14px rgba(220,160,0,.4);
+  background: linear-gradient(135deg, #f6c90e, #e9a800);
+  border: 1px solid rgba(246, 201, 14, 0.4);
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.3),
+    0 8px 25px rgba(246, 201, 14, 0.45);
 }
 /* Rose boxes */
 .wds-cd-card--rose .wds-cd-box {
-  background: linear-gradient(145deg, #e8406c, #c01e4a);
-  box-shadow: 0 4px 14px rgba(220,50,100,.45);
+  background: linear-gradient(135deg, #f8b5d0, #d66b91);
+  border: 1px solid rgba(255, 180, 210, 0.6);
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.4),
+    0 6px 20px rgba(214, 107, 145, 0.4);
 }
 
 .wds-cd-num {
-  font-size: clamp(1rem, 3.5vw, 1.45rem);
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
   font-weight: 700;
+  letter-spacing: 0.02em;
   color: #fff;
-  letter-spacing: -.02em;
-  position: relative;
-  z-index: 1;
-  animation: wds-cd-tick .25s ease;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(255, 255, 255, 0.25);
+  animation: luxuryTick 0.3s ease;
 }
 .wds-cd-label {
-  font-size: .6rem;
-  letter-spacing: .12em;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  opacity: .5;
+  opacity: 0.6;
+  margin-top: 0.4rem;
 }
 .spin-button {
   animation: spin 4s linear infinite;
@@ -695,4 +975,45 @@ html[data-bs-theme="dark"] .wds-legend__item--active {
 }
 .wds-section {
   overflow: hidden;
+}
+/* ===== LUXURY COUNTDOWN CARD ===== */
+
+.wds-cd-card {
+  border-radius: 24px;
+  padding: 1.8rem 1.5rem;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 160, 0.25);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 40px rgba(255, 215, 150, 0.05);
+  transition: all 0.4s ease;
+}
+
+.wds-cd-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(255, 200, 120, 0.25);
+}
+.wds-cd-box span {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+/* ===== WELCOME LUXURY UPGRADE ===== */
+
+.loading-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Light mode */
+html[data-bs-theme="light"] .loading-page.bg-white-black {
+  background: linear-gradient(135deg, #f8f6f3, #ffffff);
+}
+
+/* Dark mode */
+html[data-bs-theme="dark"] .loading-page.bg-white-black {
+  background: linear-gradient(135deg, #0f0f14, #1a1a22);
 }

@@ -42,6 +42,14 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
     }
   };
 
+  // 🆕 Scroll lên đầu trang
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {/* AUDIO */}
@@ -54,8 +62,9 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
 
       <div
         className="d-flex position-fixed flex-column"
-        style={{ bottom: "10vh", right: "2vh", zIndex: 1030 }}
+        style={{ bottom: "2vh", right: "2vh", zIndex: 1030 }}
       >
+        {/* Đổi theme */}
         <button
           type="button"
           className="btn bg-light-dark border btn-sm rounded-circle shadow-sm mt-3"
@@ -64,6 +73,7 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
           <i className="fa-solid fa-circle-half-stroke"></i>
         </button>
 
+        {/* Play / Pause nhạc */}
         <button
           type="button"
           onClick={toggleMusic}
@@ -73,6 +83,15 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
             className={`fa-solid ${playing ? "fa-circle-pause spin-button" : "fa-circle-play"
               }`}
           ></i>
+        </button>
+
+        {/* 🆕 Scroll To Top */}
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="btn bg-light-dark border btn-sm rounded-circle shadow-sm mt-3"
+        >
+          <i className="fa-solid fa-arrow-up"></i>
         </button>
       </div>
     </>

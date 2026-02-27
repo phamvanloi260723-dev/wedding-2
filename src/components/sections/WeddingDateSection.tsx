@@ -73,7 +73,7 @@ export default function WeddingDateSection() {
   return (
     <section className="wds-section bg-white-black" id="wedding-date">
       <div className="container">
-      
+
         {/* ── HEADER ── */}
         <div className="wds-header" data-aos="fade-up">
           <p className="wds-header__sub">Chúng tôi sắp kết hôn</p>
@@ -183,7 +183,7 @@ export default function WeddingDateSection() {
 
       {/* ── DRESSCODE & LOCATION ── */}
       <div className="wds-extra text-center mt-5" data-aos="fade-up">
-        <p className="container text-center" style={{ fontSize: "1rem" }}>
+        <p className="container text-center font-esthetic" style={{ fontSize: "1rem" }}>
           Để thể hiện sự thân thiện lẫn nhau, chúng tôi đề nghị quý vị
           tuân thủ quy định về trang phục sau đây:
         </p>
@@ -215,20 +215,20 @@ export default function WeddingDateSection() {
         {/* Locations */}
         <div className="py-2">
 
-          <p className="d-block my-1">Địa chỉ nhà chú rể</p>
+          <p className="font-esthetic d-block my-1 mt-2">Địa chỉ nhà chú rể</p>
           <a
             href="https://maps.app.goo.gl/E6CRjFDxxV4v57GJ9"
             target="_blank"
-            className="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3"
+            className="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3 mt-2"
           >
             <i className="fa-solid fa-map-location-dot me-2"></i>Google Maps
           </a>
 
-          <p className="d-block my-1">Địa chỉ nhà cô dâu</p>
+          <p className="font-esthetic d-block my-1 mt-4">Địa chỉ nhà cô dâu</p>
           <a
             href="https://maps.app.goo.gl/7jt5qC8JPukcc8NV8"
             target="_blank"
-            className="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3"
+            className="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3 mt-1"
           >
             <i className="fa-solid fa-map-location-dot me-2"></i>Google Maps
           </a>
