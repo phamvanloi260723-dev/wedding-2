@@ -55,7 +55,8 @@ export default function RootLayout({
           sizes="192x192"
           href="https://wedding-2-wheat.vercel.app/assets/images/1.jpg"
         />
-
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"></link>
         {/* Preconnect CDN */}
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

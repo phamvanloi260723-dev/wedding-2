@@ -73,11 +73,11 @@ export default function WeddingDateSection() {
   return (
     <section className="wds-section bg-white-black" id="wedding-date">
       <div className="container">
-
+      
         {/* ── HEADER ── */}
         <div className="wds-header" data-aos="fade-up">
           <p className="wds-header__sub">Chúng tôi sắp kết hôn</p>
-          <h2 className="font-esthetic wds-header__title">Đếm ngược đến ngày trọng đại</h2>
+          <h2 className="font-esthetic text-center wds-header__title">Đếm ngược đến ngày trọng đại</h2>
           <div className="wds-header__divider">
             <span className="wds-header__line" />
             <div className="wds-header__gem">Tháng 1 · 2026</div>
@@ -158,7 +158,7 @@ export default function WeddingDateSection() {
             <div className={`wds-cd-card wds-cd-card--${ev.accent}`} key={activeEvent}>
               <div className="wds-cd-card__header">
                 <p className="wds-cd-card__title">
-                  {timeLeft.expired ? ev.label : ev.label}
+                  {timeLeft.expired}
                 </p>
               </div>
               <div className="wds-cd-grid">
