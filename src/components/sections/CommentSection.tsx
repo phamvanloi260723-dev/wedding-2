@@ -8,7 +8,7 @@ declare global {
 
 export default function CommentSection() {
   return (
-    <section className="bg-light-dark my-0 pb-0 pt-3" id="comment">
+    <section className="bg-light-dark my-0 pb-0 pt-3" id="comment" data-aos="fade-up">
       <div className="container">
         <div className="border rounded-5 shadow p-3 mb-2">
           <h2
@@ -53,7 +53,7 @@ export default function CommentSection() {
           </div>
 
           <div className="d-block mb-3" id="comment-form-default">
-            <div
+            {/* <div
               id="information"
               className="alert alert-info alert-dismissible fade show rounded-4"
               role="alert"
@@ -75,7 +75,7 @@ export default function CommentSection() {
                 Sama bisa format text seperti Whatsapp lohh... cobainn jugaaa,
                 makaciwww bestieee
               </p>
-            </div>
+            </div> */}
 
             <label htmlFor="form-comment" className="form-label my-1">
               <i className="fa-solid fa-comment me-2"></i>Lời chúc phúc

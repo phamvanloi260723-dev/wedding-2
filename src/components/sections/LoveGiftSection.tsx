@@ -7,16 +7,16 @@ export default function LoveGiftSection() {
 
     <section className="bg-light-dark pb-3">
       <div className="container text-center">
-        <h2 className="font-esthetic pt-3 mb-4" style={{ fontSize: "2.25rem" }}>
+        <h2 className="font-esthetic pt-3 mb-4" style={{ fontSize: "2.25rem" }} data-aos="fade-up">
           Món quà tình yêu
         </h2>
-        <p className="container mb-1" style={{ fontSize: "0.95rem" }}>
+        <p className="container mb-1" style={{ fontSize: "0.95rem" }} data-aos="fade-up">
           Với tất cả sự tôn trọng, những ai muốn gửi tặng chúng tôi một món quà
           thể hiện tình cảm có thể làm điều đó qua:
         </p>
 
         {/* QR Code - Groom */}
-        <div className="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start">
+        <div className="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up">
           <i className="fa-solid fa-qrcode fa-lg me-2"></i>
           <p className="d-inline">Chuyển Khoản</p>
 
@@ -58,7 +58,7 @@ export default function LoveGiftSection() {
         </div>
 
         {/* QR Code - Bride */}
-        <div className="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start">
+        <div className="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up">
           <i className="fa-solid fa-qrcode fa-lg me-2"></i>
           <p className="d-inline">Chuyển Khoản</p>
 

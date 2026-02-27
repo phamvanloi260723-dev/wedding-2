@@ -11,7 +11,7 @@ import default_img from "@/assets/images/placeholder.webp";
 import { useState } from "react";
 
 
-export default function WelcomePage() {
+export default function WelcomePage({ setOpened }: { setOpened: (opened: boolean) => void }) {
   const [imageSrc, setImageSrc] = useState(bg.src);
   return (
     <div
@@ -44,7 +44,10 @@ export default function WelcomePage() {
           <button
             type="button"
             className="btn btn-light shadow rounded-4 mt-3 mx-auto"
-            onClick={(e) => window.undangan?.guest.open(e.currentTarget)}
+            onClick={(e) => {
+              window.undangan?.guest.open(e.currentTarget);
+              setOpened(true);
+            }}
           >
             <i className="fa-solid fa-envelope-open fa-bounce me-2"></i>Mở thiệp
             mời

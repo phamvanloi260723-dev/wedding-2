@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { guest } from "@/lib/guest/guest";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -21,6 +21,8 @@ import ButtonGroup from "@/components/ButtonGroup";
 import ImageModal from "@/components/ImageModal";
 
 export default function Home() {
+  const [opened, setOpened] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -32,6 +34,7 @@ export default function Home() {
       "data-key",
       "d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743",
     );
+
     document.body.setAttribute("data-url", "/api/");
     document.body.setAttribute("data-audio", "./assets/music/i_do-duc_phuc.mp3");
     document.body.setAttribute("data-confetti", "true");
@@ -50,7 +53,7 @@ export default function Home() {
 
     const stopScroll = () => clearInterval(scrollInterval);
 
-    setTimeout(startAutoScroll, 4000);
+    setTimeout(startAutoScroll, 1000);
 
     window.addEventListener("touchstart", stopScroll);
     window.addEventListener("wheel", stopScroll);
@@ -110,8 +113,8 @@ export default function Home() {
         </div>
       </div>
 
-      <WelcomePage />
-      <ButtonGroup />
+      <WelcomePage setOpened={setOpened} />
+      <ButtonGroup opened={opened} />
       <ImageModal />
     </>
   );
