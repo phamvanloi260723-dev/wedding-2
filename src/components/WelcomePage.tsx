@@ -10,9 +10,15 @@ import bg from "@/assets/images/bg.jpg";
 import default_img from "@/assets/images/placeholder.webp";
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
+import { openAnimation } from "@/lib/HeartShape";
+import { launchFirework } from "@/lib/FireworkEffect";
 
+interface Props {
+  setOpened: (opened: boolean) => void;
+  onOpen: (el: HTMLElement) => void;
+}
 
-export default function WelcomePage({ setOpened }: { setOpened: (opened: boolean) => void }) {
+export default function WelcomePage({ setOpened, onOpen }: Props) {
   const [imageSrc, setImageSrc] = useState(bg.src);
   return (
     <div
@@ -49,12 +55,22 @@ export default function WelcomePage({ setOpened }: { setOpened: (opened: boolean
             className="mb-"
           ></div>
 
+
           <button
             type="button"
             className="btn btn-light shadow rounded-4 mt-3 mx-auto"
-            onClick={(e) => {
-              window.undangan?.guest.open(e.currentTarget);
+            onClick={async (e) => {
+              const el = e.currentTarget;
+
+              window.undangan?.guest.open(el);
+
               setOpened(true);
+
+              await launchFirework(el);
+
+              await new Promise((res) => setTimeout(res, 300));
+
+              openAnimation(10);
             }}
           >
             <i className="fa-solid fa-envelope-open fa-bounce me-2"></i>

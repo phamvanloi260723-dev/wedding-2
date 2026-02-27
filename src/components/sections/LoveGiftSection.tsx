@@ -44,7 +44,11 @@ export default function LoveGiftSection() {
                 </button>
               </div>
 
-              <div className="collapse" id={`collapseQris${index}`}>
+              <div
+                className="collapse overflow-hidden"
+                id={`collapseQris${index}`}
+                style={{ willChange: "height" }}
+              >
                 <hr className="my-2 py-1" />
 
                 <div

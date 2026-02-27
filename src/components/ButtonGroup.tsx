@@ -62,7 +62,7 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
 
       <div
         className="d-flex position-fixed flex-column"
-        style={{ bottom: "2vh", right: "2vh", zIndex: 1030 }}
+        style={{ bottom: "10vh", right: "2vh", zIndex: 1030 }}
       >
         {/* Đổi theme */}
         <button

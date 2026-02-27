@@ -20,10 +20,13 @@ import NavbarBottom from "@/components/NavbarBottom";
 import WelcomePage from "@/components/WelcomePage";
 import ButtonGroup from "@/components/ButtonGroup";
 import ImageModal from "@/components/ImageModal";
-import SeasonalEffect from "..";
+import { launchFirework } from "@/lib/FireworkEffect";
+import { openAnimation } from "@/lib/HeartShape";
+
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
+
 
   useEffect(() => {
     AOS.init({
@@ -111,11 +114,16 @@ export default function Home() {
             <WaveSeparator d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z" />
           </main>
           <ButtonGroup opened={opened} />
-          {/* <NavbarBottom /> */}
+          <NavbarBottom />
         </div>
       </div>
+      <WelcomePage
+        setOpened={setOpened}
+        onOpen={(el: HTMLElement) => {
+          launchFirework(el);
+        }}
+      />
 
-      <WelcomePage setOpened={setOpened} />
       <ImageModal />
     </>
   );

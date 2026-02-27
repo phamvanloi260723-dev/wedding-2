@@ -2,7 +2,7 @@
 export const siteConfig = {
   // Couple info
   groomName: "Nguyễn Công Danh",
-  brideName: "Trần Thị Thùy Linh",
+  brideName: "Nguyễn Kim Ngân",
   groomFatherName: "Tên Bố Chú Rể",
   groomMotherName: "Tên Mẹ Chú Rể",
   brideFatherName: "Tên Bố Cô Dâu",
@@ -31,7 +31,7 @@ export const siteConfig = {
   siteUrl: "https://wedding-2-wheat.vercel.app/",
   title: "Tên chú rể & Tên cô dâu - Website Helen Studio",
   description:
-    "Tên chú rể & Tên cô dâu - Website Henlen Studio. Trải qua bao nhiêu chuyện thì chúng tôi đã tìm thấy nhau 1 mảnh ghép tình yêu.",
+    "Tên chú rể & Tên cô dâu - Website Helen Studio. Trải qua bao nhiêu chuyện thì chúng tôi đã tìm thấy nhau 1 mảnh ghép tình yêu.",
 
   // Images
   ogImage: "https://wedding-2-wheat.vercel.app/assets/images/1.jpg?v=3",
@@ -50,4 +50,5 @@ export const siteConfig = {
     qrImage: "https://wedding-2-wheat.vercel.app/assets/images/donate.png",
   },
 ]
+
 };

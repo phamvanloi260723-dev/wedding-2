@@ -1,7 +1,7 @@
 "use client";
 
 import StoryTimeline from "@/components/StoryTimeline";
-
+import { petalBurst } from "@/lib/HeartShape";
 
 declare global {
   interface Window {
@@ -62,11 +62,19 @@ export default function LoveStorySection() {
             >
               <button
                 className="btn btn-outline-auto btn-sm rounded-4 shadow-sm"
-                onClick={(e) =>
-                  window.undangan?.guest.showStory(
-                    e.currentTarget.parentNode as HTMLDivElement
-                  )
-                }
+                onClick={(e) => {
+                  const btn = e.currentTarget;
+
+                  // 💞 bắn tim từ nút
+                  petalBurst(btn);
+
+                  // ⏳ delay nhẹ cho đẹp rồi mới mở story
+                  setTimeout(() => {
+                    window.undangan?.guest.showStory(
+                      btn.parentNode as HTMLDivElement
+                    );
+                  }, 300);
+                }}
               >
                 <i className="font-esthetic fa-solid fa-heart fa-bounce me-2"></i>
                 Xem Story

@@ -5,7 +5,12 @@ export default function NavbarBottom() {
     <nav
       className="navbar navbar-expand sticky-bottom rounded-top-4 border-top p-0"
       id="navbar-menu"
+      style={{
+        willChange: "transform",
+        transform: "translateZ(0)",
+      }}
     >
+
       <ul className="navbar-nav nav-justified w-100 align-items-center">
         <li className="nav-item">
           <a className="nav-link" href="#home">
