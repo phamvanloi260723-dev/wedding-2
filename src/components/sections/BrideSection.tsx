@@ -12,6 +12,7 @@ import cewe from "@/assets/images/cewe.webp";
 import cowo from "@/assets/images/cowo.webp";
 import default_img from "@/assets/images/placeholder.webp";
 import { useState } from "react";
+import { siteConfig } from "@/config/site";
 export default function BrideSection() {
   const [imageSrc, setImageSrc] = useState(cowo.src);
   const [imageSrc2, setImageSrc2] = useState(cewe.src);
@@ -51,15 +52,15 @@ export default function BrideSection() {
             />
 
             <h2 className="font-secondary m-0" style={{ fontSize: "2.125rem" }}>
-              Tên Chú Rể
+              {siteConfig.groomName}
             </h2>
 
             <p className="font-esthetic mt-3 mb-1" >
               Bố
             </p>
-            <p className="font-esthetic mb-0">Tên Bố Chú Rể</p>
+            <p className="font-esthetic mb-0">{siteConfig.groomFatherName}</p>
             <p className="font-esthetic mb-0">Mẹ</p>
-            <p className="font-esthetic mb-0">Tên Mẹ Chú Rể</p>
+            <p className="font-esthetic mb-0">{siteConfig.groomMotherName}</p>
           </div>
 
           <LoveAnimation top="90%" left="5%" time={2000} />
@@ -85,15 +86,15 @@ export default function BrideSection() {
             />
 
             <h2 className="font-secondary m-0" style={{ fontSize: "2.125rem" }}>
-              Tên Cô Dâu
+              {siteConfig.brideName}
             </h2>
 
             <p className="font-esthetic mt-3 mb-1" >
               Bố
             </p>
-            <p className="font-esthetic mb-0">Tên Bố Cô Dâu</p>
+            <p className="font-esthetic mb-0">{siteConfig.brideFatherName}</p>
             <p className="font-esthetic mb-0">Mẹ</p>
-            <p className="font-esthetic mb-0">Tên Mẹ Cô Dâu</p>
+            <p className="font-esthetic mb-0">{siteConfig.brideMotherName}</p>
           </div>
 
           <LoveAnimation top="90%" left="5%" time={2500} />

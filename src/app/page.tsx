@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { guest } from "@/lib/guest/guest";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { siteConfig } from "@/config/site";
 
 import WaveSeparator from "@/components/WaveSeparator";
 import DesktopSidebar from "@/components/sections/DesktopSidebar";
@@ -19,6 +20,7 @@ import NavbarBottom from "@/components/NavbarBottom";
 import WelcomePage from "@/components/WelcomePage";
 import ButtonGroup from "@/components/ButtonGroup";
 import ImageModal from "@/components/ImageModal";
+import SeasonalEffect from "..";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
@@ -32,13 +34,12 @@ export default function Home() {
     });
     document.body.setAttribute(
       "data-key",
-      "d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743",
+      siteConfig.dataKey,
     );
-
-    document.body.setAttribute("data-url", "/api/");
-    document.body.setAttribute("data-audio", "./assets/music/i_do-duc_phuc.mp3");
-    document.body.setAttribute("data-confetti", "true");
-    document.body.setAttribute("data-time", "2026-02-28 09:30:00");
+    document.body.setAttribute("data-url", siteConfig.apiUrl);
+    document.body.setAttribute("data-audio", siteConfig.audioUrl);
+    document.body.setAttribute("data-confetti", siteConfig.confetti ? "true" : "false");
+    document.body.setAttribute("data-time", siteConfig.weddingDate.replace("T", " "));
 
     const app = guest.init();
     window.undangan = app;
@@ -72,6 +73,7 @@ export default function Home() {
       <div className="row m-0 p-0 opacity-0" id="root">
         {/* Desktop mode */}
         <DesktopSidebar />
+
 
         {/* Smartphone mode */}
         <div className="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0">

@@ -9,6 +9,7 @@ declare global {
 import bg from "@/assets/images/bg.jpg";
 import default_img from "@/assets/images/placeholder.webp";
 import { useState } from "react";
+import { siteConfig } from "@/config/site";
 
 
 export default function WelcomePage({ setOpened }: { setOpened: (opened: boolean) => void }) {
@@ -35,11 +36,11 @@ export default function WelcomePage({ setOpened }: { setOpened: (opened: boolean
           />
 
           <h2 className="font-primary wedding-names mb-5 ">
-            <span className="name-left">Nguyễn Công Danh</span>
+            <span className="name-left">{siteConfig.groomName}</span>
             <span className="heart-wrapper">
               <span className="heart-icon">❤</span>
             </span>
-            <span className="name-right">Nguyễn Kim Ngân</span>
+            <span className="name-right">{siteConfig.brideName}</span>
           </h2>
 
           <div

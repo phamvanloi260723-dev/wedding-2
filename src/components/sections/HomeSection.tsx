@@ -11,6 +11,7 @@ import default_img from "@/assets/images/placeholder.webp";
 
 import Date from "../Date";
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/config/site";
 
 
 export default function HomeSection() {
@@ -28,12 +29,14 @@ export default function HomeSection() {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
   function addToGoogleCalendar() {
-    const title = "Lễ Cưới Lợi & ...";
+    const title = `Lễ Cưới ${siteConfig.groomName} & ${siteConfig.brideName}`;
     const details = "Trân trọng kính mời bạn đến tham dự lễ cưới của chúng tôi.";
-    const location = "Nhà hàng ABC, Hải Dương";
+    const location = "Địa chỉ nhà chúng tôi";
 
-    const start = "20260315T030000Z";
-    const end = "20260315T060000Z";
+    const weddingDate = new window.Date(siteConfig.weddingDate);
+    // Format YYYYMMDDTHHMMSSZ
+    const start = weddingDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    const end = new window.Date(weddingDate.getTime() + 3 * 60 * 60 * 1000).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 
     const url =
       "https://calendar.google.com/calendar/render?action=TEMPLATE" +
@@ -88,7 +91,7 @@ export default function HomeSection() {
           }}
         >
           <span style={{ maxWidth: "100%", lineHeight: 1.3, fontSize: "1.8rem" }}>
-            Nguyễn Công Danh
+            {siteConfig.groomName}
           </span>
 
           <span
@@ -114,7 +117,7 @@ export default function HomeSection() {
           </span>
 
           <span style={{ maxWidth: "100%", lineHeight: 1.3, fontSize: "1.9rem" }}>
-            Nguyễn Kim Ngân
+            {siteConfig.brideName}
           </span>
         </h2>
 

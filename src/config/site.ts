@@ -1,18 +1,18 @@
 // Wedding site configuration - change these values to customize
 export const siteConfig = {
   // Couple info
-  groomName: "Tên Chú Rể",
-  brideName: "Tên Cô Dâu",
+  groomName: "Nguyễn Công Danh",
+  brideName: "Trần Thị Thùy Linh",
   groomFatherName: "Tên Bố Chú Rể",
   groomMotherName: "Tên Mẹ Chú Rể",
   brideFatherName: "Tên Bố Cô Dâu",
   brideMotherName: "Tên Mẹ Cô Dâu",
 
   // Dates
-  weddingDate: "2026-02-22 09:30:00",
-  weddingDisplayDate: "Thứ ngày tháng",
-  weddingDateDisplay: "Ngày cưới 22/01/2026",
-
+  engagementDate: "2026-01-20T00:00:00",
+  weddingDate: "2026-01-24T00:00:00",
+  calendarYear: 2026,
+  calendarMonth: 0, // January
   // Audio
   audioUrl: "/assets/music/i_do-duc_phuc.mp3",
 
@@ -35,4 +35,19 @@ export const siteConfig = {
 
   // Images
   ogImage: "https://wedding-2-wheat.vercel.app/assets/images/1.jpg?v=3",
+
+  donationAccounts: [
+  {
+    id: "groom",
+    label: "Chú rể",
+    phone: "0987 654 321",
+    qrImage: "https://wedding-2-wheat.vercel.app/assets/images/donate.png",
+  },
+  {
+    id: "bride",
+    label: "Cô dâu",
+    phone: "0912 345 678",
+    qrImage: "https://wedding-2-wheat.vercel.app/assets/images/donate.png",
+  },
+]
 };

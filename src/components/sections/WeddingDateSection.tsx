@@ -2,28 +2,29 @@
 
 import { useEffect, useState } from "react";
 import LoveAnimation from "@/components/LoveAnimation";
+import { siteConfig } from "@/config/site";
 
 type EventKey = "engagement" | "wedding";
 
-const EVENTS: Record<EventKey, { label: string; date: Date; accent: string; dotClass: string; dayNum: number }> = {
+const EVENTS: Record<EventKey, { label: string; date: Date; accent: string; dotClass: string; }> = {
   engagement: {
     label: "Ăn hỏi",
-    date: new Date("2026-01-18T00:00:00"),
+    date: new Date(siteConfig.engagementDate),
     accent: "gold",
     dotClass: "wds-legend__dot--eng",
-    dayNum: 18,
   },
   wedding: {
     label: "Lễ cưới",
-    date: new Date("2026-01-22T00:00:00"),
+    date: new Date(siteConfig.weddingDate),
     accent: "rose",
     dotClass: "wds-legend__dot--wed",
-    dayNum: 22,
   },
-};
+} as const;
 
 export default function WeddingDateSection() {
   const [activeEvent, setActiveEvent] = useState<EventKey>("wedding");
+  const engagementDay = EVENTS.engagement.date.getDate();
+  const weddingDay = EVENTS.wedding.date.getDate();
 
   const calculateTimeLeft = (targetDate: Date) => {
     const now = new Date();
@@ -49,9 +50,9 @@ export default function WeddingDateSection() {
     return () => clearInterval(interval);
   }, [activeEvent]);
 
-  // Generate calendar Jan 2026 (Mon-start)
-  const year = 2026;
-  const month = 0;
+  // Generate calendar from siteConfig
+  const year = siteConfig.calendarYear;
+  const month = siteConfig.calendarMonth;
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDayMon = (new Date(year, month, 1).getDay() + 6) % 7;
 
@@ -69,7 +70,7 @@ export default function WeddingDateSection() {
 
   const pad = (n: number) => String(n).padStart(2, "0");
   const ev = EVENTS[activeEvent];
-
+  const weddingDate = new Date(siteConfig.weddingDate);
   return (
     <section className="wds-section bg-white-black" id="wedding-date">
       <div className="container">
@@ -80,7 +81,14 @@ export default function WeddingDateSection() {
           <h2 className="font-esthetic text-center wds-header__title">Đếm ngược đến ngày trọng đại</h2>
           <div className="wds-header__divider">
             <span className="wds-header__line" />
-            <div className="wds-header__gem">Tháng 1 · 2026</div>
+            <div className="wds-header__gem">
+              {new Intl.DateTimeFormat("vi-VN", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              }).format(ev.date)}
+            </div>
             <span className="wds-header__line" />
           </div>
         </div>
@@ -103,8 +111,8 @@ export default function WeddingDateSection() {
                     <tr key={i}>
                       {week.map((d, j) => {
                         if (!d) return <td key={j} />;
-                        const isEng = d === 21;
-                        const isWed = d === 22;
+                        const isEng = d === engagementDay;
+                        const isWed = d === weddingDay;
                         const isSun = j === 6;
                         const isActiveDay = d === ev.dayNum;
                         return (
@@ -217,7 +225,7 @@ export default function WeddingDateSection() {
 
           <p className="font-esthetic d-block my-1 mt-2">Địa chỉ nhà chú rể</p>
           <a
-            href="https://maps.app.goo.gl/E6CRjFDxxV4v57GJ9"
+            href={siteConfig.groomMapUrl}
             target="_blank"
             className="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3 mt-2"
           >
@@ -226,7 +234,7 @@ export default function WeddingDateSection() {
 
           <p className="font-esthetic d-block my-1 mt-4">Địa chỉ nhà cô dâu</p>
           <a
-            href="https://maps.app.goo.gl/7jt5qC8JPukcc8NV8"
+            href={siteConfig.brideMapUrl}
             target="_blank"
             className="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3 mt-1"
           >
@@ -238,6 +246,6 @@ export default function WeddingDateSection() {
       </div>
 
       <LoveAnimation top="0%" right="5%" time={3000} wrapper />
-    </section>
+    </section >
   );
 }
