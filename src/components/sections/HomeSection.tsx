@@ -55,7 +55,8 @@ export default function HomeSection() {
         alt="bg"
         fill
         priority
-        className="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home"
+
+        className="position-absolute opacity-50 top-50 start-50 translate-middle bg-cover-home"
         style={{ objectFit: "cover" }}
       />
 
