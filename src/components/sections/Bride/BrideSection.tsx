@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import LoveAnimation from "@/components/LoveAnimation";
+import LoveAnimation from "@/components/ui/LoveAnimation";
 
 declare global {
   interface Window {

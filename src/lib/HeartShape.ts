@@ -1,6 +1,9 @@
 "use client";
 
-import confetti, { Shape } from "canvas-confetti";
+// @ts-ignore
+import confetti from "canvas-confetti";
+
+type Shape = any;
 
 const zIndex = 1057;
 

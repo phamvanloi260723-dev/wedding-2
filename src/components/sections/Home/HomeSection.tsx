@@ -9,9 +9,10 @@ import Image from "next/image";
 import bg from "@/assets/images/bg.jpg";
 import default_img from "@/assets/images/placeholder.webp";
 
-import Date from "../Date";
+import Date from "@/components/ui/Date";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
+import "./home-section.css";
 
 
 export default function HomeSection() {

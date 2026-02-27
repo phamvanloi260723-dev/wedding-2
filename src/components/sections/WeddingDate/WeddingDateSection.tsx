@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LoveAnimation from "@/components/LoveAnimation";
+import LoveAnimation from "@/components/ui/LoveAnimation";
 import { siteConfig } from "@/config/site";
-import { calculateCountdown } from "@/lib/countdown";
+import { calculateCountdown } from "./useCountdown";
+import "./wedding-date.css";
 type EventKey = "engagement" | "wedding";
 
 export default function WeddingDateSection() {

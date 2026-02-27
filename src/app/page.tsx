@@ -1,25 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { guest } from "@/lib/guest/guest";
+// removed guest
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { siteConfig } from "@/config/site";
 
-import WaveSeparator from "@/components/WaveSeparator";
+import WaveSeparator from "@/components/ui/WaveSeparator";
 import DesktopSidebar from "@/components/sections/DesktopSidebar";
-import HomeSection from "@/components/sections/HomeSection";
-import BrideSection from "@/components/sections/BrideSection";
+import HomeSection from "@/components/sections/Home/HomeSection";
+import BrideSection from "@/components/sections/Bride/BrideSection";
 import QuoteSection from "@/components/sections/QuoteSection";
-import LoveStorySection from "@/components/sections/LoveStorySection";
-import WeddingDateSection from "@/components/sections/WeddingDateSection";
-import GallerySection from "@/components/sections/GallerySection";
-import LoveGiftSection from "@/components/sections/LoveGiftSection";
-import CommentSection from "@/components/sections/CommentSection";
-import NavbarBottom from "@/components/NavbarBottom";
-import WelcomePage from "@/components/WelcomePage";
-import ButtonGroup from "@/components/ButtonGroup";
-import ImageModal from "@/components/ImageModal";
+import LoveStorySection from "@/components/sections/LoveStory/LoveStorySection";
+import WeddingDateSection from "@/components/sections/WeddingDate/WeddingDateSection";
+import GallerySection from "@/components/sections/Gallery/GallerySection";
+import LoveGiftSection from "@/components/sections/LoveGift/LoveGiftSection";
+import CommentSection from "@/components/sections/Comment/CommentSection";
+import NavbarBottom from "@/components/ui/NavbarBottom";
+import WelcomePage from "@/components/ui/WelcomePage";
+import ButtonGroup from "@/components/ui/ButtonGroup";
+import ImageModal from "@/components/ui/ImageModal";
 import { launchFirework } from "@/lib/FireworkEffect";
 import { openAnimation } from "@/lib/HeartShape";
 
@@ -44,8 +44,7 @@ export default function Home() {
     document.body.setAttribute("data-confetti", siteConfig.confetti ? "true" : "false");
     document.body.setAttribute("data-time", siteConfig.weddingDate.replace("T", " "));
 
-    const app = guest.init();
-    window.undangan = app;
+    // guest init removed
 
     let scrollInterval: any;
 
@@ -66,14 +65,21 @@ export default function Home() {
       stopScroll();
       window.removeEventListener("touchstart", stopScroll);
       window.removeEventListener("wheel", stopScroll);
-      guest.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (opened) {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 500);
+    }
+  }, [opened]);
 
   return (
     <>
       {/* Root Invitation */}
-      <div className="row m-0 p-0 opacity-0" id="root">
+      <div className={`row m-0 p-0 transition-opacity duration-1000 ${opened ? "" : "opacity-0"}`} style={{ transition: "opacity 1s ease" }} id="root">
         {/* Desktop mode */}
         <DesktopSidebar />
 

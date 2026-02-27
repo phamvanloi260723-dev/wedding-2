@@ -20,11 +20,16 @@ interface Props {
 
 export default function WelcomePage({ setOpened, onOpen }: Props) {
   const [imageSrc, setImageSrc] = useState(bg.src);
+  const [isFading, setIsFading] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+
+  if (isClosed) return null;
+
   return (
     <div
       className="loading-page bg-white-black"
       id="welcome"
-      style={{ opacity: 1 }}
+      style={{ opacity: isFading ? 0 : 1, transition: 'opacity 0.8s ease', pointerEvents: isFading ? 'none' : 'auto' }}
     >
       <div className="d-flex justify-content-center align-items-center vh-100 overflow-y-auto">
         <div className="d-flex flex-column text-center align-items-center wedding-hero">
@@ -59,21 +64,45 @@ export default function WelcomePage({ setOpened, onOpen }: Props) {
           <button
             type="button"
             className="btn btn-light shadow rounded-4 mt-3 mx-auto"
-            onClick={async (e) => {
+            onClick={(e) => {
               const el = e.currentTarget;
+              el.disabled = true;
 
-              window.undangan?.guest.open(el);
-
+              // Immediately open the card and start fading
+              window.scrollTo({ top: 0, behavior: "instant" });
               setOpened(true);
+              setIsFading(true);
 
-              await launchFirework(el);
+              // Capture the button's position before it disappears
+              const rect = el.getBoundingClientRect();
+              const originX = (rect.left + rect.width / 2) / window.innerWidth;
+              const originY = (rect.top + rect.height / 2) / window.innerHeight;
 
-              await new Promise((res) => setTimeout(res, 300));
+              // Let the card fade out completely, THEN fire the fireworks
+              setTimeout(async () => {
+                setIsClosed(true);
 
-              openAnimation(10);
+                // Dynamically import or call confetti using the saved coordinates
+                // We use the global window.confetti if canvas-confetti is loaded, 
+                // or just call our wrapper passing a dummy element with similar coords
+                const dummyEl = document.createElement("div");
+                dummyEl.style.position = "fixed";
+                dummyEl.style.left = `${rect.left}px`;
+                dummyEl.style.top = `${rect.top}px`;
+                dummyEl.style.width = `${rect.width}px`;
+                dummyEl.style.height = `${rect.height}px`;
+                document.body.appendChild(dummyEl);
+
+                await launchFirework(dummyEl);
+                document.body.removeChild(dummyEl);
+
+                setTimeout(() => {
+                  openAnimation(10);
+                }, 300);
+              }, 800);
             }}
           >
-            <i className="fa-solid fa-envelope-open fa-bounce me-2"></i>
+            <i className="fa-solid fa-envelope-open me-2"></i>
             Mở thiệp mời
           </button>
 

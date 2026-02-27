@@ -1,6 +1,6 @@
 "use client";
 
-import Carousel from "@/components/Carousel";
+import Carousel from "@/components/ui/Carousel";
 
 import image1 from "@/assets/images/18.jpg";
 import image2 from "@/assets/images/17.jpg";

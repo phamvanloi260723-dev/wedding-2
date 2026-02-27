@@ -1,8 +1,8 @@
 // Wedding site configuration - change these values to customize
 export const siteConfig = {
   // Couple info
-  groomName: "Nguyễn Công Danh",
-  brideName: "Nguyễn Kim Ngân",
+  groomName: "Tên Chú Rể",
+  brideName: "Tên Cô Dâu",
   groomFatherName: "Tên Bố Chú Rể",
   groomMotherName: "Tên Mẹ Chú Rể",
   brideFatherName: "Tên Bố Cô Dâu",

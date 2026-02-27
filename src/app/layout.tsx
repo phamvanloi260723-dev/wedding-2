@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../styles/globals.css";
+
 
 export const metadata: Metadata = {
-  title: "Thiệp đám cưới tên chú rể tên cô dâu",
+  title: "Tên chú rể & Tên cô dâu",
   description:
     "Tên chú rể & Tên cô dâu - Website Helen Studio. Trải qua bao nhiêu chuyện thì chúng tôi đã tìm thấy nhau 1 mảnh ghép tình yêu.",
   authors: [{ name: "dewanakl" }],
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" data-bs-theme="auto">
+    <html lang="id" data-bs-theme="auto" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#000000" />
         <meta name="color-scheme" content="dark light" />
@@ -105,6 +106,25 @@ export default function RootLayout({
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
           integrity="sha256-5P1JGBOIxI7FBAvT/mb1fCnI5n/NhQKzNUuW7Hq0fMc="
           crossOrigin="anonymous"
+        />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var storedTheme = localStorage.getItem("bs-theme");
+                  var autoTheme = document.documentElement.getAttribute("data-bs-theme") === "auto";
+                  if (storedTheme) {
+                    document.documentElement.setAttribute("data-bs-theme", storedTheme);
+                  } else if (autoTheme) {
+                    var isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    document.documentElement.setAttribute("data-bs-theme", isDark ? "dark" : "light");
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
         />
       </head>
       <body>{children}</body>

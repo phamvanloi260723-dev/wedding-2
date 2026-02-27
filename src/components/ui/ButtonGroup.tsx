@@ -2,11 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-declare global {
-  interface Window {
-    undangan: any;
-  }
-}
+// removed declare global
 
 export default function ButtonGroup({ opened }: { opened: boolean }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -22,7 +18,7 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
         await audio.play();
         setPlaying(true);
       } catch (err) {
-        console.log("Autoplay bị chặn:", err);
+        // Autoplay blocked by browser
       }
     };
 
@@ -50,6 +46,14 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
     });
   };
 
+  // Đổi theme
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-bs-theme', newTheme);
+    localStorage.setItem('bs-theme', newTheme);
+  };
+
   return (
     <>
       {/* AUDIO */}
@@ -68,7 +72,7 @@ export default function ButtonGroup({ opened }: { opened: boolean }) {
         <button
           type="button"
           className="btn bg-light-dark border btn-sm rounded-circle shadow-sm mt-3"
-          onClick={() => window.undangan?.theme.change()}
+          onClick={toggleTheme}
         >
           <i className="fa-solid fa-circle-half-stroke"></i>
         </button>

@@ -1,6 +1,6 @@
 "use client";
 
-import StoryTimeline from "@/components/StoryTimeline";
+import StoryTimeline from "@/components/ui/StoryTimeline";
 import { petalBurst } from "@/lib/HeartShape";
 
 declare global {
@@ -8,8 +8,11 @@ declare global {
     undangan: any;
   }
 }
+import { useState } from "react";
 
 export default function LoveStorySection() {
+  const [showStoryOverlay, setShowStoryOverlay] = useState(true);
+  const [isFadingStory, setIsFadingStory] = useState(false);
   return (
     <section className="bg-light-dark pt-2 pb-4">
       <div className="container">
@@ -54,32 +57,29 @@ export default function LoveStorySection() {
 
           {/* STORY */}
           <div className="position-relative">
-            <div
-              className="position-absolute d-flex justify-content-center align-items-center 
-               top-50 start-50 translate-middle w-100 h-100 
-               bg-overlay-auto z-3"
-              style={{ opacity: "100%", backgroundColor: "unset" }}
-            >
-              <button
-                className="btn btn-outline-auto btn-sm rounded-4 shadow-sm"
-                onClick={(e) => {
-                  const btn = e.currentTarget;
-
-                  // 💞 bắn tim từ nút
-                  petalBurst(btn);
-
-                  // ⏳ delay nhẹ cho đẹp rồi mới mở story
-                  setTimeout(() => {
-                    window.undangan?.guest.showStory(
-                      btn.parentNode as HTMLDivElement
-                    );
-                  }, 300);
-                }}
+            {showStoryOverlay && (
+              <div
+                className={`position-absolute d-flex justify-content-center align-items-center 
+                 top-50 start-50 translate-middle w-100 h-100 
+                 bg-overlay-auto z-3 transition-opacity duration-300`}
+                style={{ opacity: isFadingStory ? 0 : 1, backgroundColor: "unset", transition: "opacity 0.3s ease" }}
               >
-                <i className="font-esthetic fa-solid fa-heart fa-bounce me-2"></i>
-                Xem Story
-              </button>
-            </div>
+                <button
+                  className="btn btn-outline-auto btn-sm rounded-4 shadow-sm"
+                  onClick={(e) => {
+                    const btn = e.currentTarget;
+                    petalBurst(btn);
+                    setIsFadingStory(true);
+                    setTimeout(() => {
+                      setShowStoryOverlay(false);
+                    }, 300);
+                  }}
+                >
+                  <i className="font-esthetic fa-solid fa-heart fa-bounce me-2"></i>
+                  Xem Story
+                </button>
+              </div>
+            )}
 
             <div
               className="overflow-y-scroll overflow-x-hidden p-2 with-scrollbar"
