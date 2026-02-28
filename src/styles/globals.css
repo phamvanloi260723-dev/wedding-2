@@ -223,7 +223,6 @@ html {
 .font-primary {
   font-family: "Playfair Display", serif;
 }
-
 .font-secondary {
   font-family: "Cormorant Garamond", serif;
 }
@@ -413,12 +412,22 @@ html[data-bs-theme="dark"] .color-theme-svg {
   background-color: #2D2025;
 }
 
-html[data-bs-theme="light"] .bg-light-dark {
+html[data-bs-theme="light"] .color-theme-svg-invert {
+  color: #FFFFFF;
   background-color: #FFF6F8;
 }
 
-html[data-bs-theme="dark"] .bg-light-dark {
+html[data-bs-theme="dark"] .color-theme-svg-invert {
+  color: #2D2025;
   background-color: #1C1518;
+}
+
+html[data-bs-theme="light"] .bg-light-dark {
+  background-color: #FFFFFF;
+}
+
+html[data-bs-theme="dark"] .bg-light-dark {
+  background-color: #2D2025;
 }
 
 html[data-bs-theme="light"] .bg-white-black {

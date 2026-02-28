@@ -48,9 +48,7 @@ export default function WelcomePage({ setOpened, onOpen }: Props) {
 
           <h2 className="font-primary wedding-names mb-5 ">
             <span className="name-left">{siteConfig.groomName}</span>
-            <span className="heart-wrapper">
-              <span className="heart-icon">❤</span>
-            </span>
+            <span className="heart-icon">❤</span>
             <span className="name-right">{siteConfig.brideName}</span>
           </h2>
 
