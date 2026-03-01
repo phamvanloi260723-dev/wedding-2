@@ -58,6 +58,8 @@ export default function RootLayout({
         />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Parisienne&family=Tangerine:wght@400;700&family=Sacramento&family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;600&family=Cinzel:wght@400;600&family=Bodoni+Moda:wght@400;600&family=DM+Serif+Display&family=Montserrat:wght@400;600&family=Lora:wght@400;600&family=Libre+Baskerville&family=Poppins:wght@400;600&family=Raleway:wght@400;600&family=Be+Vietnam+Pro:wght@400;600&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+        </link>
         {/* Preconnect CDN */}
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

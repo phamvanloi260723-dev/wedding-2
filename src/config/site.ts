@@ -12,7 +12,7 @@ export const siteConfig = {
   engagementDate: "2026-03-01T00:00:00.000+07:00",
   weddingDate: "2026-03-24T00:00:00.000+07:00",
   calendarYear: 2026,
-  calendarMonth: 2, // January
+  calendarMonth: 2, // đấy là tháng 2 + 1 là ra lịch hiện tại
   
   // Audio
   audioUrl: "/assets/music/i_do-duc_phuc.mp3",

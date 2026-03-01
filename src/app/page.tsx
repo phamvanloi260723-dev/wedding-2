@@ -22,6 +22,8 @@ import ButtonGroup from "@/components/ui/ButtonGroup";
 import ImageModal from "@/components/ui/ImageModal";
 import { launchFirework } from "@/lib/FireworkEffect";
 import { openAnimation } from "@/lib/HeartShape";
+import HeartRain from "@/components/ui/HeartRain";
+
 
 
 export default function Home() {
@@ -129,6 +131,9 @@ export default function Home() {
           launchFirework(el);
         }}
       />
+
+      {/* Continuous falling heart rain — always visible */}
+      <HeartRain />
 
       <ImageModal />
     </>

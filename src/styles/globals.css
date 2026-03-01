@@ -220,11 +220,16 @@ html {
   animation: fadeUp 1.2s ease forwards;
 }
 
+/* === Luxury Font System === */
 .font-primary {
-  font-family: "Playfair Display", serif;
+  /* Calligraphic script for bride/groom names — elegant & romantic */
+  font-family: "Great Vibes", "Allura", "Sacramento", cursive;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 .font-secondary {
   font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
 }
 
 .font-esthetic {
@@ -233,6 +238,23 @@ html {
 .font-number {
   font-family: "Cinzel", serif;
 }
+ 
+/* .font-primary {
+  font-family: "Allura", cursive;   
+}
+
+.font-secondary {
+  font-family: "Cormorant Garamond", serif; 
+}
+
+.font-esthetic {
+  font-family: "Montserrat", sans-serif; 
+}
+
+.font-number {
+  font-family: "Cinzel", serif; 
+} */
+
 .date-row {
   display: grid;
   grid-template-columns: 1fr auto auto auto 1fr;
@@ -272,15 +294,20 @@ html {
   justify-content: center;
 }
 
-/* Heart chính */
+/* Heart chính — Elegant navy/champagne gold */
 .heart-icon {
   font-size: 2rem;
-  color: #e8406c;
+  /* Elegant gradient from soft navy to champagne gold */
+  background: linear-gradient(135deg, #4a7ab5 0%, #c9a96e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   position: relative;
   z-index: 2;
-  animation: heartBeat 1.8s ease-in-out infinite;
+  animation: heartBeat 2.4s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  filter: drop-shadow(0 2px 6px rgba(74, 122, 181, 0.35));
 }
-/* Heart background glow */
+/* Heart background glow — soft sapphire aura */
 .heart-wrapper::before {
   content: "";
   position: absolute;
@@ -288,23 +315,29 @@ html {
   height: 70px;
   background: radial-gradient(
     circle,
-    rgba(232, 64, 108, 0.35),
+    rgba(100, 149, 210, 0.3),
     transparent 70%
   );
   border-radius: 50%;
   z-index: 1;
 }
 
-/* Animation nhịp tim */
+/* Animation nhịp tim — gentle, luxury pulse */
 @keyframes heartBeat {
   0%,
   100% {
     transform: scale(1);
   }
-  25% {
-    transform: scale(1.2);
+  15% {
+    transform: scale(1.18);
   }
-  40% {
+  30% {
+    transform: scale(0.96);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  60% {
     transform: scale(1);
   }
 }
@@ -492,12 +525,64 @@ svg {
   align-items: center;
 }
 
-/* Light mode */
+/* Light mode — cream & soft blue luxury gradient */
 html[data-bs-theme="light"] .loading-page.bg-white-black {
-  background: linear-gradient(135deg, #FFF6F8, #FFFFFF);
+  background: linear-gradient(
+    160deg,
+    #f8f4ee 0%,
+    #eef3fb 35%,
+    #f5f0ea 65%,
+    #e8f0fa 100%
+  );
 }
 
-/* Dark mode */
+/* Dark mode — deep navy luxury */
 html[data-bs-theme="dark"] .loading-page.bg-white-black {
-  background: linear-gradient(135deg, #1C1518, #2D2025);
+  background: linear-gradient(
+    160deg,
+    #0d1b2e 0%,
+    #122040 40%,
+    #1a1508 80%,
+    #0a1525 100%
+  );
+}
+
+/* === Calligraphic Name Styling === */
+.wedding-names.font-primary .name-left,
+.wedding-names.font-primary .name-right,
+.wedding-names .name-left,
+.wedding-names .name-right {
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  line-height: 1.15;
+}
+
+/* Light mode name color: deep navy */
+html[data-bs-theme="light"] .wedding-names {
+  color: #2c4a7a;
+  text-shadow: 0 2px 12px rgba(74, 122, 181, 0.18);
+}
+
+/* Dark mode name color: champagne/pearl */
+html[data-bs-theme="dark"] .wedding-names {
+  color: #e8d5b0;
+  text-shadow: 0 2px 16px rgba(200, 170, 100, 0.25);
+}
+
+/* Subtitle refinement */
+html[data-bs-theme="light"] .wedding-subtitle {
+  color: #5a7aaa;
+  letter-spacing: 5px;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Cormorant Garamond", serif;
+}
+
+html[data-bs-theme="dark"] .wedding-subtitle {
+  color: #c9a96e;
+  letter-spacing: 5px;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Cormorant Garamond", serif;
 }
