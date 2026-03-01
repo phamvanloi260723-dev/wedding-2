@@ -1,19 +1,25 @@
-# Stage 1: Build
-FROM node:20-alpine AS build
+# ---- Stage 1: Build ----
+FROM node:22-alpine AS builder
+
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+
+# Install dependencies
+COPY package.json ./
+RUN npm install
+
+# Copy source & build static export
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve with Nginx
+# ---- Stage 2: Serve with Nginx ----
 FROM nginx:alpine
-RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/index.html /usr/share/nginx/html/
-COPY --from=build /app/dashboard.html /usr/share/nginx/html/
-COPY --from=build /app/css /usr/share/nginx/html/css
-COPY --from=build /app/assets /usr/share/nginx/html/assets
-COPY --from=build /app/dist /usr/share/nginx/html/dist
+
+# Copy static export from builder
+COPY --from=builder /app/out /usr/share/nginx/html
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,588 @@
+/* ======================== common.css ======================== */
+html {
+  scroll-behavior: smooth !important;
+  width: 100vw !important;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+i {
+  width: auto !important;
+}
+
+body,
+div,
+nav,
+svg,
+section {
+  will-change: background-color;
+  transition: background-color 350ms ease;
+}
+
+svg > path {
+  will-change: color;
+  transition: color 350ms ease;
+}
+
+html[data-bs-theme="dark"] .navbar {
+  background-color: rgba(var(--bs-dark-rgb), 0.75) !important;
+  backdrop-filter: blur(0.5rem);
+}
+
+html[data-bs-theme="light"] .navbar {
+  background-color: rgba(var(--bs-light-rgb), 0.75) !important;
+  backdrop-filter: blur(0.5rem);
+}
+
+html[data-bs-theme="dark"] .text-theme-auto {
+  color: #F5EBEF;
+}
+
+html[data-bs-theme="light"] .text-theme-auto {
+  color: #4A3B40;
+}
+
+html[data-bs-theme="dark"] .nav-link {
+  color: rgba(var(--bs-white-rgb), 0.5);
+}
+
+html[data-bs-theme="light"] .nav-link {
+  color: rgba(var(--bs-black-rgb), 0.5);
+}
+
+html[data-bs-theme="dark"] .bg-theme-auto {
+  background-color: #2D2025;
+}
+
+html[data-bs-theme="light"] .bg-theme-auto {
+  background-color: #FFFFFF;
+}
+
+html[data-bs-theme="dark"] .btn-outline-auto {
+  --bs-btn-color: var(--bs-light);
+  --bs-btn-border-color: var(--bs-light);
+  --bs-btn-hover-color: var(--bs-black);
+  --bs-btn-hover-bg: var(--bs-light);
+  --bs-btn-hover-border-color: var(--bs-light);
+  --bs-btn-focus-shadow-rgb: var(--bs-light-rgb);
+  --bs-btn-active-color: var(--bs-black);
+  --bs-btn-active-bg: var(--bs-light);
+  --bs-btn-active-border-color: var(--bs-light);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--bs-light);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--bs-light);
+  --bs-gradient: none;
+}
+
+html[data-bs-theme="light"] .btn-outline-auto {
+  --bs-btn-color: var(--bs-dark);
+  --bs-btn-border-color: var(--bs-dark);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-dark);
+  --bs-btn-hover-border-color: var(--bs-dark);
+  --bs-btn-focus-shadow-rgb: var(--bs-dark-rgb);
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-active-bg: var(--bs-dark);
+  --bs-btn-active-border-color: var(--bs-dark);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--bs-dark);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--bs-dark);
+  --bs-gradient: none;
+}
+
+html[data-bs-theme="dark"] .bg-overlay-auto {
+  background-color: rgba(28, 21, 24, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+html[data-bs-theme="light"] .bg-overlay-auto {
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+.hover-area {
+  display: none;
+  cursor: pointer;
+}
+
+.hover-wrapper:hover .hover-area {
+  display: flex;
+}
+
+.gif-image {
+  max-height: 10rem;
+}
+
+/* ======================== animation.css ======================== */
+@keyframes scroll {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.mouse-animation > .scroll-animation {
+  width: 0.25rem;
+  height: 0.625rem;
+  animation: scroll 3s linear infinite;
+}
+
+.mouse-animation {
+  height: 2rem;
+  box-sizing: content-box;
+}
+
+@keyframes spin-icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-button {
+  animation: spin-icon 5s linear infinite;
+}
+
+@keyframes love {
+  50% {
+    transform: translateY(1rem);
+  }
+}
+
+.animate-love {
+  animation: love 5s ease-in-out infinite;
+}
+
+.slide-desktop {
+  transform: scale(1);
+  transition: transform 10s linear;
+}
+
+.slide-desktop-active {
+  transform: scale(1.15);
+}
+
+/* ======================== guest.css ======================== */
+html {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.with-scrollbar {
+  scrollbar-width: auto !important;
+  -ms-overflow-style: auto !important;
+}
+
+/* Container giới hạn chiều rộng cho đẹp */
+.wedding-hero {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Dòng phụ "Đám cưới của" */
+.wedding-subtitle {
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ===== Wedding Names Layout ===== */
+
+.wedding-names {
+  font-size: clamp(1.8rem, 1vw, 2.4rem);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+/* === Luxury Font System === */
+.font-primary {
+  /* Calligraphic script for bride/groom names — elegant & romantic */
+  font-family: "Great Vibes", "Allura", "Sacramento", cursive;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+.font-secondary {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+}
+
+.font-esthetic {
+  font-family: "Montserrat", sans-serif;
+}
+.font-number {
+  font-family: "Cinzel", serif;
+}
+ 
+/* .font-primary {
+  font-family: "Allura", cursive;   
+}
+
+.font-secondary {
+  font-family: "Cormorant Garamond", serif; 
+}
+
+.font-esthetic {
+  font-family: "Montserrat", sans-serif; 
+}
+
+.font-number {
+  font-family: "Cinzel", serif; 
+} */
+
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto 1fr;
+  align-items: center;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.date-day {
+  text-align: right;
+}
+
+.date-month {
+  text-align: center;
+}
+
+.date-year {
+  text-align: left;
+}
+
+.date-dot {
+  text-align: center;
+}
+
+/* Tên trái phải */
+.name-left,
+.name-right {
+  max-width: 220px;
+  line-height: 1.3;
+}
+
+/* Heart wrapper */
+.heart-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Heart chính — Elegant navy/champagne gold */
+.heart-icon {
+  font-size: 2rem;
+  /* Elegant gradient from soft navy to champagne gold */
+  background: linear-gradient(135deg, #4a7ab5 0%, #c9a96e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 2;
+  animation: heartBeat 2.4s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  filter: drop-shadow(0 2px 6px rgba(74, 122, 181, 0.35));
+}
+/* Heart background glow — soft sapphire aura */
+.heart-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(
+    circle,
+    rgba(100, 149, 210, 0.3),
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Animation nhịp tim — gentle, luxury pulse */
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.18);
+  }
+  30% {
+    transform: scale(0.96);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* Ảnh đại diện */
+.wedding-avatar {
+  width: clamp(130px, 45vw, 220px);
+  height: clamp(130px, 45vw, 220px);
+  object-fit: cover;
+}
+
+/* Guest text */
+#guest-name {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  opacity: 0.8;
+}
+
+/* Button */
+.wedding-button {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.wedding-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 576px) {
+  .wedding-names {
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  .name-left,
+  .name-right {
+    max-width: 100%;
+  }
+
+  .heart-icon {
+    font-size: 1.6rem;
+  }
+
+  .heart-wrapper::before {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.font-arabic {
+  font-family: "Noto Naskh Arabic", serif !important;
+}
+
+.img-center-crop {
+  width: 13rem;
+  height: 13rem;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+html[data-bs-theme="dark"] .btn-transparent {
+  background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
+  backdrop-filter: blur(0.5rem);
+}
+
+html[data-bs-theme="light"] .btn-transparent {
+  background-color: rgba(var(--bs-light-rgb), 0.5) !important;
+  backdrop-filter: blur(0.5rem);
+}
+
+.loading-page {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1056;
+}
+
+html[data-bs-theme="light"] .color-theme-svg {
+  color: #FFF6F8;
+  background-color: #FFFFFF;
+}
+
+html[data-bs-theme="dark"] .color-theme-svg {
+  color: #1C1518;
+  background-color: #2D2025;
+}
+
+html[data-bs-theme="light"] .color-theme-svg-invert {
+  color: #FFFFFF;
+  background-color: #FFF6F8;
+}
+
+html[data-bs-theme="dark"] .color-theme-svg-invert {
+  color: #2D2025;
+  background-color: #1C1518;
+}
+
+html[data-bs-theme="light"] .bg-light-dark {
+  background-color: #FFFFFF;
+}
+
+html[data-bs-theme="dark"] .bg-light-dark {
+  background-color: #2D2025;
+}
+
+html[data-bs-theme="light"] .bg-white-black {
+  background-color: #FFF6F8;
+}
+
+html[data-bs-theme="dark"] .bg-white-black {
+  background-color: #1C1518;
+}
+
+
+.width-loading {
+  width: 25%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .width-loading {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .width-loading {
+    width: 75%;
+  }
+}
+
+svg {
+  display: block;
+  line-height: 0;
+  shape-rendering: geometricPrecision;
+  backface-visibility: hidden;
+}
+
+.svg-wrapper {
+  overflow: hidden !important;
+  transform: translateZ(0) !important;
+}
+
+.no-gap-bottom {
+  margin-bottom: -0.75rem !important;
+}
+
+.spin-button {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ===== WELCOME LUXURY UPGRADE ===== */
+
+.loading-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Light mode — cream & soft blue luxury gradient */
+html[data-bs-theme="light"] .loading-page.bg-white-black {
+  background: linear-gradient(
+    160deg,
+    #f8f4ee 0%,
+    #eef3fb 35%,
+    #f5f0ea 65%,
+    #e8f0fa 100%
+  );
+}
+
+/* Dark mode — deep navy luxury */
+html[data-bs-theme="dark"] .loading-page.bg-white-black {
+  background: linear-gradient(
+    160deg,
+    #0d1b2e 0%,
+    #122040 40%,
+    #1a1508 80%,
+    #0a1525 100%
+  );
+}
+
+/* === Calligraphic Name Styling === */
+.wedding-names.font-primary .name-left,
+.wedding-names.font-primary .name-right,
+.wedding-names .name-left,
+.wedding-names .name-right {
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  line-height: 1.15;
+}
+
+/* Light mode name color: deep navy */
+html[data-bs-theme="light"] .wedding-names {
+  color: #2c4a7a;
+  text-shadow: 0 2px 12px rgba(74, 122, 181, 0.18);
+}
+
+/* Dark mode name color: champagne/pearl */
+html[data-bs-theme="dark"] .wedding-names {
+  color: #e8d5b0;
+  text-shadow: 0 2px 16px rgba(200, 170, 100, 0.25);
+}
+
+/* Subtitle refinement */
+html[data-bs-theme="light"] .wedding-subtitle {
+  color: #5a7aaa;
+  letter-spacing: 5px;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Cormorant Garamond", serif;
+}
+
+html[data-bs-theme="dark"] .wedding-subtitle {
+  color: #c9a96e;
+  letter-spacing: 5px;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Cormorant Garamond", serif;
+}
